@@ -18303,3 +18303,1468 @@ LEVEL 16:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+============================================================
+                    ALGEBRA MASTER CHEAT SHEET
+             METHODS + MODELS + FORMULAS + ACTIVITIES
+============================================================
+
+
+1. BASIC ALGEBRA
+------------------------------------------------------------
+1.1 Variables
+1.2 Constants
+1.3 Coefficients
+1.4 Terms
+1.5 Expressions
+1.6 Equations
+1.7 Inequalities
+1.8 Algebraic Identities
+1.9 Polynomials
+1.10 Rational Expressions
+1.11 Algebraic Fractions
+
+
+2. ALGEBRAIC OPERATIONS
+------------------------------------------------------------
+Addition
+Subtraction
+Multiplication
+Division
+Expansion
+Simplification
+Factorization
+Substitution
+
+
+3. EXPONENTS / INDICES
+------------------------------------------------------------
+a^m × a^n = a^(m+n)
+
+a^m / a^n = a^(m-n)
+
+(a^m)^n = a^(mn)
+
+(ab)^n = a^n b^n
+
+(a/b)^n = a^n/b^n
+
+a^0 = 1
+
+a^(-n) = 1/a^n
+
+a^(1/n) = ⁿ√a
+
+
+4. ALGEBRAIC IDENTITIES
+------------------------------------------------------------
+(a+b)^2 = a²+2ab+b²
+
+(a-b)^2 = a²-2ab+b²
+
+a²-b² = (a-b)(a+b)
+
+(a+b)^3 = a³+3a²b+3ab²+b³
+
+(a-b)^3 = a³-3a²b+3ab²-b³
+
+a³+b³ = (a+b)(a²-ab+b²)
+
+a³-b³ = (a-b)(a²+ab+b²)
+
+
+5. FACTORIZATION METHODS
+------------------------------------------------------------
+5.1 Common Factor
+
+5.2 Grouping
+
+5.3 Difference of Squares
+
+5.4 Perfect Square Trinomial
+
+5.5 Sum of Cubes
+
+5.6 Difference of Cubes
+
+5.7 Quadratic Factorization
+
+5.8 Substitution Method
+
+5.9 Synthetic Division
+
+5.10 Polynomial Division
+
+
+6. LINEAR EQUATIONS
+------------------------------------------------------------
+General form:
+
+ax+b=0
+
+Solution:
+
+x=-b/a
+
+
+Methods:
+
+Transposition
+Simplification
+Substitution
+Elimination
+Graphical Method
+
+
+7. SIMULTANEOUS LINEAR EQUATIONS
+------------------------------------------------------------
+Two variables:
+
+ax+by=c
+dx+ey=f
+
+
+Methods:
+
+Substitution
+Elimination
+Comparison
+Graphical Method
+Matrix Method
+Cramer's Rule
+
+
+8. LINEAR INEQUALITIES
+------------------------------------------------------------
+x+a>b
+
+x-a<b
+
+ax+b≥c
+
+Important:
+
+When multiplying/dividing by a negative number,
+reverse the inequality sign.
+
+
+9. QUADRATIC EQUATIONS
+------------------------------------------------------------
+General form:
+
+ax²+bx+c=0
+
+
+Methods:
+
+Factorization
+Completing the Square
+Quadratic Formula
+Graphical Method
+
+
+Quadratic Formula:
+
+x = [-b ± √(b²-4ac)]/(2a)
+
+
+10. DISCRIMINANT
+------------------------------------------------------------
+D = b²-4ac
+
+
+D>0
+→ Two distinct real roots
+
+
+D=0
+→ Equal real roots
+
+
+D<0
+→ Complex roots
+
+
+11. ROOT RELATIONS
+------------------------------------------------------------
+For:
+
+ax²+bx+c=0
+
+
+Roots = α, β
+
+
+α+β = -b/a
+
+αβ = c/a
+
+
+Equation from roots:
+
+x²-(α+β)x+αβ=0
+
+
+12. POLYNOMIALS
+------------------------------------------------------------
+Constant Polynomial
+
+Linear Polynomial
+
+Quadratic Polynomial
+
+Cubic Polynomial
+
+Quartic Polynomial
+
+Higher-Degree Polynomial
+
+
+General:
+
+P(x)=a_nx^n+...+a_1x+a_0
+
+
+13. POLYNOMIAL OPERATIONS
+------------------------------------------------------------
+Addition
+Subtraction
+Multiplication
+Division
+Factorization
+Expansion
+Remainder
+Roots
+Zeros
+Degree
+
+
+14. REMAINDER THEOREM
+------------------------------------------------------------
+If P(x) is divided by:
+
+(x-a)
+
+
+Remainder:
+
+P(a)
+
+
+15. FACTOR THEOREM
+------------------------------------------------------------
+If:
+
+P(a)=0
+
+
+then:
+
+(x-a)
+
+is a factor of:
+
+P(x)
+
+
+16. POLYNOMIAL DIVISION
+------------------------------------------------------------
+Long Division
+
+Synthetic Division
+
+Quotient
+
+Remainder
+
+
+17. RATIONAL EXPRESSIONS
+------------------------------------------------------------
+Simplification
+Factorization
+Cancellation
+Common Denominator
+Addition
+Subtraction
+Multiplication
+Division
+
+
+18. RADICALS / SURDS
+------------------------------------------------------------
+√a × √b = √(ab)
+
+√a/√b = √(a/b)
+
+(√a)^2 = a
+
+
+Methods:
+
+Simplification
+Rationalization
+Conjugate Method
+Surd Operations
+
+
+19. RATIONALIZATION
+------------------------------------------------------------
+For:
+
+1/(a+√b)
+
+
+Multiply by conjugate:
+
+(a-√b)
+
+
+Conjugate:
+
+(a+√b)
+↔
+(a-√b)
+
+
+20. LOGARITHMS
+------------------------------------------------------------
+Definition:
+
+log_a x = y
+
+means:
+
+a^y=x
+
+
+Rules:
+
+log(ab)=log a+log b
+
+log(a/b)=log a-log b
+
+log(a^n)=n log a
+
+log_a a=1
+
+log_a 1=0
+
+
+Change of Base:
+
+log_a b = log_c b / log_c a
+
+
+21. EXPONENTIAL EQUATIONS
+------------------------------------------------------------
+a^x=b
+
+
+Methods:
+
+Same Base
+Logarithm
+Substitution
+Graphical Method
+
+
+22. LOGARITHMIC EQUATIONS
+------------------------------------------------------------
+Methods:
+
+Convert to exponential form
+Log laws
+Substitution
+Change of base
+Domain checking
+
+
+23. SEQUENCES
+------------------------------------------------------------
+Arithmetic Sequence
+
+Geometric Sequence
+
+Harmonic Sequence
+
+Recursive Sequence
+
+
+24. ARITHMETIC PROGRESSION (AP)
+------------------------------------------------------------
+First term:
+
+a
+
+Common difference:
+
+d
+
+
+nth term:
+
+a_n=a+(n-1)d
+
+
+Sum:
+
+S_n=n/2[2a+(n-1)d]
+
+
+25. GEOMETRIC PROGRESSION (GP)
+------------------------------------------------------------
+First term:
+
+a
+
+Common ratio:
+
+r
+
+
+nth term:
+
+a_n=ar^(n-1)
+
+
+Sum:
+
+S_n=a(r^n-1)/(r-1)
+
+
+Infinite GP:
+
+S∞=a/(1-r)
+
+|r|<1
+
+
+26. BINOMIAL THEOREM
+------------------------------------------------------------
+(a+b)^n
+
+= Σ C(n,r)a^(n-r)b^r
+
+
+General term:
+
+T_(r+1)
+=
+C(n,r)a^(n-r)b^r
+
+
+27. BINOMIAL COEFFICIENTS
+------------------------------------------------------------
+C(n,r)=n!/[r!(n-r)!]
+
+
+Properties:
+
+C(n,0)=1
+
+C(n,n)=1
+
+C(n,r)=C(n,n-r)
+
+
+28. PERMUTATION
+------------------------------------------------------------
+nPr = n!/(n-r)!
+
+
+Applications:
+
+Arrangement
+Ordering
+Selection with order
+
+
+29. COMBINATION
+------------------------------------------------------------
+nCr = n!/[r!(n-r)!]
+
+
+Applications:
+
+Selection
+Probability
+Counting
+
+
+30. COMPLEX NUMBERS
+------------------------------------------------------------
+i = √(-1)
+
+i²=-1
+
+i³=-i
+
+i⁴=1
+
+
+Complex number:
+
+z=a+bi
+
+
+Real part:
+
+Re(z)=a
+
+
+Imaginary part:
+
+Im(z)=b
+
+
+31. COMPLEX NUMBER OPERATIONS
+------------------------------------------------------------
+Addition
+Subtraction
+Multiplication
+Division
+Conjugate
+Modulus
+Argument
+
+
+32. COMPLEX CONJUGATE
+------------------------------------------------------------
+If:
+
+z=a+bi
+
+
+Then:
+
+z̄=a-bi
+
+
+Property:
+
+z z̄ = |z|²
+
+
+33. MODULUS
+------------------------------------------------------------
+|z|=√(a²+b²)
+
+
+34. ARGUMENT
+------------------------------------------------------------
+arg(z)=θ
+
+
+tanθ=b/a
+
+
+35. POLAR FORM
+------------------------------------------------------------
+z=r(cosθ+i sinθ)
+
+
+Euler form:
+
+z=re^(iθ)
+
+
+36. DE MOIVRE'S THEOREM
+------------------------------------------------------------
+[cosθ+i sinθ]^n
+
+=
+
+cos(nθ)+i sin(nθ)
+
+
+37. COMPLEX ROOTS
+------------------------------------------------------------
+For polynomial equations:
+
+Find roots
+Factor polynomial
+Use conjugate root theorem
+Use polar representation
+
+
+38. MATRICES
+------------------------------------------------------------
+Matrix
+
+Row Matrix
+
+Column Matrix
+
+Square Matrix
+
+Diagonal Matrix
+
+Scalar Matrix
+
+Identity Matrix
+
+Zero Matrix
+
+Symmetric Matrix
+
+Skew-Symmetric Matrix
+
+Triangular Matrix
+
+
+39. MATRIX OPERATIONS
+------------------------------------------------------------
+Addition
+Subtraction
+Scalar Multiplication
+Matrix Multiplication
+Transpose
+Inverse
+Determinant
+Rank
+
+
+40. DETERMINANT
+------------------------------------------------------------
+For:
+
+|a b|
+|c d|
+
+
+det(A)=ad-bc
+
+
+41. MATRIX INVERSE
+------------------------------------------------------------
+For 2×2:
+
+A⁻¹ =
+
+1/(ad-bc)
+[
+ d  -b
+-c   a
+]
+
+
+Condition:
+
+det(A) ≠ 0
+
+
+42. SYSTEMS USING MATRICES
+------------------------------------------------------------
+AX=B
+
+
+Solution:
+
+X=A⁻¹B
+
+
+Methods:
+
+Gaussian Elimination
+Gauss-Jordan
+Cramer's Rule
+Inverse Matrix
+
+
+43. VECTOR ALGEBRA
+------------------------------------------------------------
+Scalar
+
+Vector
+
+Magnitude
+
+Unit Vector
+
+Position Vector
+
+Direction Vector
+
+
+Operations:
+
+Addition
+Subtraction
+Scalar Multiplication
+Dot Product
+Cross Product
+
+
+44. SET ALGEBRA
+------------------------------------------------------------
+Set
+
+Subset
+
+Universal Set
+
+Empty Set
+
+Union
+
+Intersection
+
+Complement
+
+Difference
+
+Cartesian Product
+
+
+45. SET METHODS
+------------------------------------------------------------
+A∪B
+
+A∩B
+
+A-B
+
+Aᶜ
+
+A×B
+
+
+De Morgan:
+
+(A∪B)ᶜ=Aᶜ∩Bᶜ
+
+(A∩B)ᶜ=Aᶜ∪Bᶜ
+
+
+46. RELATIONS
+------------------------------------------------------------
+Reflexive
+
+Symmetric
+
+Antisymmetric
+
+Transitive
+
+Equivalence Relation
+
+Partial Order
+
+
+47. FUNCTIONS
+------------------------------------------------------------
+One-to-One
+
+Many-to-One
+
+Onto
+
+Into
+
+Bijective
+
+Identity
+
+Constant
+
+Composite
+
+Inverse
+
+
+48. FUNCTION OPERATIONS
+------------------------------------------------------------
+(f+g)(x)
+
+(f-g)(x)
+
+(fg)(x)
+
+(f/g)(x)
+
+(f∘g)(x)
+
+
+49. INVERSE FUNCTION
+------------------------------------------------------------
+If:
+
+y=f(x)
+
+
+Interchange:
+
+x ↔ y
+
+
+Then solve for:
+
+y
+
+
+50. ALGEBRAIC STRUCTURES
+------------------------------------------------------------
+Set
+
+Binary Operation
+
+Groupoid
+
+Semigroup
+
+Monoid
+
+Group
+
+Abelian Group
+
+Subgroup
+
+Ring
+
+Integral Domain
+
+Field
+
+Vector Space
+
+
+51. GROUP THEORY
+------------------------------------------------------------
+Group properties:
+
+Closure
+Associativity
+Identity
+Inverse
+
+
+Types:
+
+Finite Group
+Infinite Group
+Cyclic Group
+Abelian Group
+Permutation Group
+
+
+52. GROUP METHODS
+------------------------------------------------------------
+Subgroup Test
+
+Cyclic Group Method
+
+Cosets
+
+Lagrange's Theorem
+
+Homomorphism
+
+Isomorphism
+
+Normal Subgroup
+
+Quotient Group
+
+
+53. RING THEORY
+------------------------------------------------------------
+Ring
+
+Commutative Ring
+
+Ring with Identity
+
+Integral Domain
+
+Division Ring
+
+Field
+
+
+Methods:
+
+Ideal
+Principal Ideal
+Ring Homomorphism
+Quotient Ring
+
+
+54. FIELD THEORY
+------------------------------------------------------------
+Field
+
+Finite Field
+
+Infinite Field
+
+Field Extension
+
+Algebraic Extension
+
+Transcendental Extension
+
+Splitting Field
+
+
+55. ABSTRACT ALGEBRA
+------------------------------------------------------------
+Groups
+Rings
+Fields
+Modules
+Algebras
+Homomorphisms
+Isomorphisms
+Quotient Structures
+
+
+56. LINEAR ALGEBRA
+------------------------------------------------------------
+Vector Space
+
+Subspace
+
+Linear Combination
+
+Span
+
+Linear Independence
+
+Basis
+
+Dimension
+
+Coordinates
+
+
+57. LINEAR TRANSFORMATION
+------------------------------------------------------------
+T:V→W
+
+
+Properties:
+
+Linearity
+
+Kernel
+
+Image
+
+Range
+
+Null Space
+
+Rank
+
+Nullity
+
+
+Rank-Nullity:
+
+dim(V)=rank(T)+nullity(T)
+
+
+58. EIGENVALUES
+------------------------------------------------------------
+Av=λv
+
+
+Characteristic equation:
+
+det(A-λI)=0
+
+
+λ = Eigenvalue
+
+v = Eigenvector
+
+
+59. EIGENVECTORS
+------------------------------------------------------------
+For each λ:
+
+(A-λI)v=0
+
+
+Applications:
+
+PCA
+Differential Equations
+Quantum Mechanics
+Machine Learning
+Computer Graphics
+
+
+60. POLAR / COORDINATE ALGEBRA
+------------------------------------------------------------
+Cartesian:
+
+(x,y)
+
+
+Polar:
+
+(r,θ)
+
+
+x=r cosθ
+
+y=r sinθ
+
+
+61. ALGEBRAIC MODELS
+------------------------------------------------------------
+Linear Model:
+
+y=mx+c
+
+
+Quadratic Model:
+
+y=ax²+bx+c
+
+
+Polynomial Model:
+
+y=P(x)
+
+
+Exponential Model:
+
+y=ab^x
+
+
+Logarithmic Model:
+
+y=a+b ln(x)
+
+
+Power Model:
+
+y=ax^b
+
+
+Rational Model:
+
+y=P(x)/Q(x)
+
+
+Matrix Model:
+
+AX=B
+
+
+Vector Model:
+
+Av
+
+
+Complex Model:
+
+z=a+bi
+
+
+62. EQUATION-SOLVING METHODS
+------------------------------------------------------------
+1. Direct Simplification
+2. Substitution
+3. Elimination
+4. Factorization
+5. Completing Square
+6. Quadratic Formula
+7. Graphical Method
+8. Matrix Method
+9. Cramer's Rule
+10. Gaussian Elimination
+11. Newton Method
+12. Numerical Approximation
+
+
+63. INEQUALITY METHODS
+------------------------------------------------------------
+Linear Inequality
+
+Quadratic Inequality
+
+Polynomial Inequality
+
+Rational Inequality
+
+Absolute-Value Inequality
+
+
+Methods:
+
+Number Line
+Sign Chart
+Factorization
+Test Points
+Interval Analysis
+Graphical Method
+
+
+64. ABSOLUTE VALUE
+------------------------------------------------------------
+|x| = x       if x≥0
+
+|x| = -x      if x<0
+
+
+|x|<a:
+
+-a<x<a
+
+
+|x|>a:
+
+x<-a OR x>a
+
+
+65. ALGEBRAIC PROOF METHODS
+------------------------------------------------------------
+Direct Proof
+
+Contradiction
+
+Contrapositive
+
+Mathematical Induction
+
+Strong Induction
+
+Case Analysis
+
+Counterexample
+
+
+66. MATHEMATICAL INDUCTION
+------------------------------------------------------------
+Step 1:
+Prove P(1)
+
+
+Step 2:
+Assume P(k)
+
+
+Step 3:
+Prove P(k+1)
+
+
+Therefore:
+
+P(n) is true for all n.
+
+
+67. DISCRETE ALGEBRA
+------------------------------------------------------------
+Logic
+
+Propositions
+
+Truth Tables
+
+Boolean Algebra
+
+Predicates
+
+Quantifiers
+
+Relations
+
+Functions
+
+Graphs
+
+Combinatorics
+
+
+68. BOOLEAN ALGEBRA
+------------------------------------------------------------
+AND
+
+OR
+
+NOT
+
+XOR
+
+NAND
+
+NOR
+
+
+Laws:
+
+Identity
+
+Domination
+
+Idempotent
+
+Complement
+
+Commutative
+
+Associative
+
+Distributive
+
+Absorption
+
+De Morgan
+
+
+69. ALGEBRA + PROBABILITY
+------------------------------------------------------------
+Counting
+ ↓
+Permutation
+ ↓
+Combination
+ ↓
+Sample Space
+ ↓
+Events
+ ↓
+Probability
+
+
+70. ALGEBRA + CALCULUS
+------------------------------------------------------------
+Algebra
+ ↓
+Functions
+ ↓
+Limits
+ ↓
+Differentiation
+ ↓
+Integration
+ ↓
+Differential Equations
+
+
+71. ALGEBRA + MACHINE LEARNING
+------------------------------------------------------------
+Linear Algebra
+ ↓
+Vectors
+ ↓
+Matrices
+ ↓
+Matrix Operations
+ ↓
+Eigenvalues
+ ↓
+Eigenvectors
+ ↓
+Linear Models
+ ↓
+Optimization
+ ↓
+Machine Learning
+
+
+72. BEGINNER ACTIVITIES
+------------------------------------------------------------
+1. Simplify algebraic expressions
+2. Solve linear equations
+3. Solve inequalities
+4. Factor polynomials
+5. Expand identities
+6. Solve quadratic equations
+7. Work with exponents
+8. Work with radicals
+9. Solve simultaneous equations
+10. Plot algebraic functions
+
+
+73. INTERMEDIATE ACTIVITIES
+------------------------------------------------------------
+1. Polynomial division
+2. Remainder theorem
+3. Factor theorem
+4. Complex number operations
+5. AP problems
+6. GP problems
+7. Binomial theorem
+8. Permutation problems
+9. Combination problems
+10. Matrix operations
+11. Determinants
+12. Matrix inverse
+13. System of equations
+14. Function composition
+15. Inverse functions
+
+
+74. ADVANCED ACTIVITIES
+------------------------------------------------------------
+1. Group theory problems
+2. Ring theory problems
+3. Field theory problems
+4. Vector spaces
+5. Linear transformations
+6. Eigenvalue problems
+7. Eigenvector problems
+8. Diagonalization
+9. Abstract algebra proofs
+10. Algebraic structures
+11. Polynomial roots
+12. Complex analysis preparation
+13. Numerical equation solving
+14. Optimization models
+15. Algebraic modeling
+
+
+75. PRACTICAL PROJECTS
+------------------------------------------------------------
+1. Algebra Calculator
+2. Equation Solver
+3. Quadratic Equation Solver
+4. Polynomial Calculator
+5. Matrix Calculator
+6. Determinant Calculator
+7. Matrix Inverse Calculator
+8. Complex Number Calculator
+9. Factorization Tool
+10. Graph Plotter
+11. Polynomial Root Finder
+12. AP/GP Calculator
+13. Binomial Calculator
+14. Permutation Calculator
+15. Combination Calculator
+16. Linear System Solver
+17. Eigenvalue Calculator
+18. Eigenvector Calculator
+19. Symbolic Algebra Calculator
+20. Numerical Equation Solver
+
+
+76. PYTHON ALGEBRA TOOLS
+------------------------------------------------------------
+SymPy
+
+NumPy
+
+SciPy
+
+Matplotlib
+
+
+SymPy modules:
+
+sympy.symbols()
+sympy.expand()
+sympy.factor()
+sympy.simplify()
+sympy.solve()
+sympy.solveset()
+sympy.diff()
+sympy.integrate()
+sympy.limit()
+sympy.series()
+sympy.Matrix()
+sympy.det()
+sympy.inverse()
+
+
+77. ALGEBRA ROADMAP
+------------------------------------------------------------
+Basic Arithmetic
+        ↓
+Algebraic Expressions
+        ↓
+Identities
+        ↓
+Factorization
+        ↓
+Equations
+        ↓
+Inequalities
+        ↓
+Functions
+        ↓
+Polynomials
+        ↓
+Exponents
+        ↓
+Logarithms
+        ↓
+Sequences & Series
+        ↓
+Permutations & Combinations
+        ↓
+Complex Numbers
+        ↓
+Matrices
+        ↓
+Linear Algebra
+        ↓
+Abstract Algebra
+        ↓
+Advanced Algebra
+
+
+78. ALGEBRA 80/20
+------------------------------------------------------------
+MUST LEARN:
+
+Variables
+Constants
+Expressions
+Identities
+Factorization
+Linear Equations
+Quadratic Equations
+Inequalities
+Functions
+Polynomials
+Exponents
+Logarithms
+Sequences
+AP
+GP
+Permutation
+Combination
+Binomial Theorem
+Complex Numbers
+Matrices
+Determinants
+Linear Systems
+Vectors
+Eigenvalues
+Eigenvectors
+Linear Transformations
+
+
+============================================================
+                 END OF ALGEBRA MASTER SHEET
+============================================================
