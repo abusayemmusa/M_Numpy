@@ -1,1 +1,1496 @@
+============================================================
+              REINFORCEMENT LEARNING (RL)
+============================================================
 
+1. RL BASICS
+------------------------------------------------------------
+Reinforcement Learning
+Agent
+Environment
+State
+Action
+Reward
+Policy
+Value Function
+Q-Value
+Episode
+Trajectory
+Return
+Reward Function
+Transition
+Terminal State
+Initial State
+Goal State
+Time Step
+Environment Dynamics
+
+
+2. RL CORE LOOP
+------------------------------------------------------------
+Environment
+     ↓
+   State
+     ↓
+   Agent
+     ↓
+  Action
+     ↓
+Environment
+     ↓
+  Reward
+     ↓
+Next State
+     ↓
+   Agent
+     ↓
+Repeat
+
+
+3. MATHEMATICAL FOUNDATION
+------------------------------------------------------------
+Markov Property
+Markov Decision Process (MDP)
+
+MDP = (S, A, P, R, γ)
+
+S = State Space
+A = Action Space
+P = Transition Probability
+R = Reward
+γ = Discount Factor
+
+Policy:
+π(a|s)
+
+Return:
+G_t = R_(t+1) + γR_(t+2) + γ²R_(t+3) + ...
+
+Discount Factor:
+0 ≤ γ ≤ 1
+
+
+4. VALUE FUNCTIONS
+------------------------------------------------------------
+State Value Function
+
+Vπ(s)
+
+Action Value Function
+
+Qπ(s,a)
+
+Advantage Function
+
+Aπ(s,a) = Qπ(s,a) - Vπ(s)
+
+Optimal Value Function
+
+V*(s)
+
+Optimal Q Function
+
+Q*(s,a)
+
+
+5. BELLMAN EQUATIONS
+------------------------------------------------------------
+Bellman Expectation Equation
+
+Vπ(s) =
+Σ π(a|s) Σ P(s'|s,a)
+[R(s,a,s') + γVπ(s')]
+
+Bellman Optimality Equation
+
+V*(s) =
+max_a [R(s,a) + γΣP(s'|s,a)V*(s')]
+
+Q*(s,a) =
+R(s,a) + γΣP(s'|s,a) max_a' Q*(s',a')
+
+
+6. EXPLORATION vs EXPLOITATION
+------------------------------------------------------------
+Exploration
+Exploitation
+
+ε-Greedy
+ε = exploration probability
+
+Greedy Action
+Random Action
+
+Softmax Exploration
+Boltzmann Exploration
+Upper Confidence Bound (UCB)
+Entropy-based Exploration
+Noise-based Exploration
+
+
+7. RL TYPES
+------------------------------------------------------------
+Model-Based RL
+Model-Free RL
+
+Value-Based RL
+Policy-Based RL
+Actor-Critic RL
+
+On-Policy RL
+Off-Policy RL
+
+Online RL
+Offline RL
+
+
+8. TABULAR RL
+------------------------------------------------------------
+Dynamic Programming
+Monte Carlo
+Temporal Difference Learning
+
+Policy Evaluation
+Policy Improvement
+Policy Iteration
+Value Iteration
+
+Q-Table
+State-Value Table
+
+
+9. DYNAMIC PROGRAMMING
+------------------------------------------------------------
+Requires Environment Model
+
+Policy Evaluation
+Policy Improvement
+Policy Iteration
+Value Iteration
+
+Bellman Backup
+
+
+10. MONTE CARLO METHODS
+------------------------------------------------------------
+Monte Carlo Prediction
+Monte Carlo Control
+
+First-Visit Monte Carlo
+Every-Visit Monte Carlo
+
+MC Policy Evaluation
+MC Exploring Starts
+ε-Greedy MC
+
+
+11. TEMPORAL DIFFERENCE (TD)
+------------------------------------------------------------
+TD Learning
+TD Prediction
+TD Control
+
+TD(0)
+TD(λ)
+
+TD Error:
+
+δ =
+R + γV(S') - V(S)
+
+
+12. SARSA
+------------------------------------------------------------
+State
+Action
+Reward
+Next State
+Next Action
+
+SARSA:
+
+Q(S,A) ←
+Q(S,A) + α[
+R + γQ(S',A') - Q(S,A)
+]
+
+Type:
+On-Policy
+Value-Based
+
+
+13. Q-LEARNING
+------------------------------------------------------------
+Q-Learning
+
+Q(S,A) ←
+Q(S,A) + α[
+R + γ max Q(S',A') - Q(S,A)
+]
+
+Type:
+Off-Policy
+Value-Based
+
+Main Concepts:
+Q-Table
+Learning Rate
+Discount Factor
+Exploration
+
+
+14. EXPECTED SARSA
+------------------------------------------------------------
+Expected SARSA
+
+Uses expected value of
+next-state actions instead of
+only maximum action.
+
+
+15. DOUBLE Q-LEARNING
+------------------------------------------------------------
+Double Q-Learning
+
+Purpose:
+Reduce overestimation bias.
+
+Concept:
+Two Q-functions
+
+Q1
+Q2
+
+
+16. DEEP REINFORCEMENT LEARNING
+------------------------------------------------------------
+Deep RL = RL + Deep Neural Networks
+
+State
+ ↓
+Neural Network
+ ↓
+Action / Value
+
+
+17. DEEP Q-NETWORK (DQN)
+------------------------------------------------------------
+DQN
+
+Deep Neural Network
++
+Q-Learning
+
+Input:
+State
+
+Output:
+Q-value for each action
+
+
+18. DQN COMPONENTS
+------------------------------------------------------------
+Q-Network
+Target Network
+Replay Buffer
+Experience Replay
+ε-Greedy
+Loss Function
+Optimizer
+Discount Factor
+Learning Rate
+
+
+19. EXPERIENCE REPLAY
+------------------------------------------------------------
+Experience:
+
+(s, a, r, s', done)
+
+Replay Buffer
+
+Store experiences
+     ↓
+Random Sampling
+     ↓
+Mini-batch
+     ↓
+Train Neural Network
+
+
+20. TARGET NETWORK
+------------------------------------------------------------
+Online Network
+Target Network
+
+Online Network:
+Frequently updated
+
+Target Network:
+Updated periodically
+
+Purpose:
+Training stability
+
+
+21. DQN IMPROVEMENTS
+------------------------------------------------------------
+Double DQN
+Dueling DQN
+Prioritized Experience Replay
+Noisy Networks
+Multi-Step DQN
+Distributional DQN
+
+
+22. DOUBLE DQN
+------------------------------------------------------------
+Reduces Q-value
+overestimation.
+
+Action Selection:
+Online Network
+
+Action Evaluation:
+Target Network
+
+
+23. DUELING DQN
+------------------------------------------------------------
+Network separates:
+
+State Value
++
+Action Advantage
+
+Architecture:
+
+State
+ ↓
+Feature Extractor
+ ↓
+ ┌───────────────┐
+ ↓               ↓
+V(s)           A(s,a)
+ ↓               ↓
+ └───────┬───────┘
+         ↓
+       Q(s,a)
+
+
+24. POLICY-BASED RL
+------------------------------------------------------------
+Directly learns Policy.
+
+Policy:
+π(a|s)
+
+Examples:
+REINFORCE
+Policy Gradient
+
+
+25. POLICY GRADIENT
+------------------------------------------------------------
+Objective:
+
+J(θ)
+
+Gradient:
+
+∇θ J(θ)
+
+Update:
+
+θ ← θ + α∇θJ(θ)
+
+
+26. REINFORCE
+------------------------------------------------------------
+REINFORCE Algorithm
+
+Monte Carlo
++
+Policy Gradient
+
+Steps:
+
+1. Generate Episode
+2. Calculate Returns
+3. Calculate Policy Gradient
+4. Update Policy
+
+
+27. ACTOR-CRITIC
+------------------------------------------------------------
+Actor:
+Learns Policy
+
+Critic:
+Learns Value Function
+
+Architecture:
+
+State
+ ↓
+ ┌─────────────┐
+ ↓             ↓
+Actor        Critic
+ ↓             ↓
+Action       Value
+
+
+28. A2C
+------------------------------------------------------------
+Advantage Actor-Critic
+
+Actor:
+Policy
+
+Critic:
+Value
+
+Advantage:
+
+A(s,a) = Q(s,a) - V(s)
+
+
+29. A3C
+------------------------------------------------------------
+Asynchronous Advantage Actor-Critic
+
+Multiple workers
++
+Parallel environments
+
+Workers
+ ↓
+Local Models
+ ↓
+Global Model
+
+
+30. PPO
+------------------------------------------------------------
+Proximal Policy Optimization
+
+Policy Gradient
++
+Stable Policy Updates
+
+Important Concepts:
+
+Clipping
+Surrogate Objective
+Advantage
+Entropy Bonus
+
+Very popular RL algorithm.
+
+
+31. TRPO
+------------------------------------------------------------
+Trust Region Policy Optimization
+
+Goal:
+Prevent excessively large
+policy updates.
+
+
+32. DDPG
+------------------------------------------------------------
+Deep Deterministic Policy Gradient
+
+For:
+Continuous Action Spaces
+
+Components:
+Actor
+Critic
+Replay Buffer
+Target Networks
+
+Off-Policy
+
+
+33. TD3
+------------------------------------------------------------
+Twin Delayed Deep Deterministic
+Policy Gradient
+
+Improvements over DDPG:
+
+Twin Critics
+Delayed Policy Updates
+Target Policy Smoothing
+
+
+34. SAC
+------------------------------------------------------------
+Soft Actor-Critic
+
+Actor-Critic
++
+Maximum Entropy RL
+
+Goal:
+High reward
++
+Good exploration
+
+Important:
+Entropy
+
+
+35. CONTINUOUS CONTROL
+------------------------------------------------------------
+Continuous State
+Continuous Action
+
+Algorithms:
+
+DDPG
+TD3
+SAC
+PPO
+
+
+36. DISCRETE CONTROL
+------------------------------------------------------------
+Discrete Actions
+
+Examples:
+
+Q-Learning
+SARSA
+DQN
+Double DQN
+Dueling DQN
+PPO
+
+
+37. MODEL-BASED RL
+------------------------------------------------------------
+Learns/uses Environment Model.
+
+Model:
+P(s'|s,a)
+R(s,a)
+
+Examples:
+
+Dynamic Programming
+Dyna-Q
+Model Predictive Control
+World Models
+MuZero
+
+
+38. DYNA-Q
+------------------------------------------------------------
+Real Experience
++
+Learned Model
+
+Real Environment
+       ↓
+   Q-Learning
+       ↓
+    Q-Table
+
+Learned Model
+       ↓
+ Planning
+       ↓
+    Q-Table
+
+
+39. MODEL-FREE RL
+------------------------------------------------------------
+Does not explicitly learn
+environment dynamics.
+
+Examples:
+
+Q-Learning
+SARSA
+DQN
+REINFORCE
+PPO
+DDPG
+TD3
+SAC
+
+
+40. ON-POLICY RL
+------------------------------------------------------------
+Learns from current policy.
+
+Examples:
+
+SARSA
+REINFORCE
+A2C
+A3C
+PPO
+
+
+41. OFF-POLICY RL
+------------------------------------------------------------
+Can learn from another
+behavior policy.
+
+Examples:
+
+Q-Learning
+DQN
+DDPG
+TD3
+SAC
+
+
+42. POLICY TYPES
+------------------------------------------------------------
+Deterministic Policy
+
+a = π(s)
+
+Stochastic Policy
+
+π(a|s)
+
+
+43. REWARD DESIGN
+------------------------------------------------------------
+Sparse Reward
+Dense Reward
+Positive Reward
+Negative Reward
+Terminal Reward
+Shaped Reward
+
+Reward Shaping
+
+Goal:
+Make learning easier.
+
+
+44. REWARD HACKING
+------------------------------------------------------------
+Agent finds unintended way
+to maximize reward.
+
+Problems:
+
+Wrong Objective
+Reward Exploitation
+Specification Gaming
+
+
+45. RL ENVIRONMENT TYPES
+------------------------------------------------------------
+Discrete State
+Continuous State
+
+Discrete Action
+Continuous Action
+
+Deterministic Environment
+Stochastic Environment
+
+Fully Observable
+Partially Observable
+
+Episodic
+Continuing
+
+
+46. POMDP
+------------------------------------------------------------
+Partially Observable
+Markov Decision Process
+
+Components:
+
+States
+Actions
+Observations
+Rewards
+Transitions
+
+
+47. MULTI-AGENT RL
+------------------------------------------------------------
+Multi-Agent Reinforcement Learning
+(MARL)
+
+Multiple Agents
+
+Cooperative RL
+Competitive RL
+Mixed Environment
+
+Examples:
+Self-Play
+Multi-Agent Games
+Robot Swarms
+
+
+48. HIERARCHICAL RL
+------------------------------------------------------------
+High-Level Policy
+       ↓
+Sub-Goals
+       ↓
+Low-Level Policy
+       ↓
+Actions
+
+Concepts:
+
+Options
+Subgoals
+Skills
+Temporal Abstraction
+
+
+49. MULTI-STEP RL
+------------------------------------------------------------
+1-Step TD
+n-Step TD
+
+n-Step Return
+
+Combines:
+Monte Carlo
++
+Temporal Difference
+
+
+50. ELIGIBILITY TRACES
+------------------------------------------------------------
+TD(λ)
+
+Eligibility Trace
+λ
+
+Connects:
+TD Learning
++
+Monte Carlo
+
+
+51. DISTRIBUTIONAL RL
+------------------------------------------------------------
+Instead of learning:
+
+Expected Q-value
+
+Learn:
+
+Distribution of Returns
+
+Examples:
+
+C51
+QR-DQN
+IQN
+FQF
+
+
+52. META-RL
+------------------------------------------------------------
+Meta Reinforcement Learning
+
+Goal:
+Learn how to learn.
+
+Fast adaptation
+to new environments.
+
+
+53. OFFLINE RL
+------------------------------------------------------------
+Also called:
+
+Batch RL
+
+Training only from
+existing dataset.
+
+No continuous interaction
+with environment.
+
+Challenges:
+
+Distribution Shift
+Extrapolation Error
+Dataset Quality
+
+
+54. IMITATION LEARNING
+------------------------------------------------------------
+Learn from demonstrations.
+
+Behavior Cloning
+Inverse Reinforcement Learning
+
+Expert
+ ↓
+Demonstrations
+ ↓
+Agent
+
+
+55. INVERSE RL
+------------------------------------------------------------
+Normal RL:
+
+Reward → Policy
+
+Inverse RL:
+
+Demonstrations
+     ↓
+Infer Reward
+     ↓
+Policy
+
+
+56. RL FROM HUMAN FEEDBACK
+------------------------------------------------------------
+RLHF
+
+Human Preference
+       ↓
+Preference Data
+       ↓
+Reward Model
+       ↓
+RL Optimization
+       ↓
+AI Model
+
+
+57. RL + LLM
+------------------------------------------------------------
+LLM
+ ↓
+Policy
+ ↓
+Action
+ ↓
+Environment/Tool
+ ↓
+Reward/Feedback
+ ↓
+Update
+
+Applications:
+
+AI Agents
+Tool Use
+Planning
+Reasoning
+Alignment
+Preference Optimization
+
+
+58. RL + ROBOTICS
+------------------------------------------------------------
+Robot
+ ↓
+Sensors
+ ↓
+State
+ ↓
+RL Agent
+ ↓
+Action
+ ↓
+Motor
+ ↓
+Environment
+ ↓
+Reward
+
+Applications:
+
+Robot Arm
+Walking Robot
+Drone
+Autonomous Vehicle
+Manipulation
+Navigation
+Locomotion
+Grasping
+
+
+59. RL + COMPUTER VISION
+------------------------------------------------------------
+Image
+ ↓
+CNN / Vision Encoder
+ ↓
+State Representation
+ ↓
+RL Agent
+ ↓
+Action
+
+
+60. RL + NLP
+------------------------------------------------------------
+Text State
+ ↓
+Language Model
+ ↓
+Policy
+ ↓
+Action
+ ↓
+Reward
+
+
+61. RL + GAME AI
+------------------------------------------------------------
+Examples:
+
+Chess
+Go
+Atari
+Poker
+Video Games
+
+Algorithms:
+
+DQN
+PPO
+A3C
+AlphaZero
+MuZero
+
+
+62. ALPHAZERO
+------------------------------------------------------------
+Self-Play
++
+Monte Carlo Tree Search
++
+Neural Network
+
+Used for:
+
+Chess
+Go
+Shogi
+
+
+63. MUZERO
+------------------------------------------------------------
+MuZero
+
+Learns useful environment
+dynamics internally.
+
+Components:
+
+Representation
+Dynamics
+Prediction
+
++
+Planning
+
+
+64. MONTE CARLO TREE SEARCH
+------------------------------------------------------------
+MCTS
+
+Selection
+Expansion
+Simulation
+Backpropagation
+
+Used in:
+
+Game AI
+Planning
+AlphaZero
+MuZero
+
+
+65. RL PLANNING
+------------------------------------------------------------
+Planning
+Search
+Tree Search
+Model Predictive Control
+MCTS
+World Models
+
+
+66. RL LOSS / OBJECTIVES
+------------------------------------------------------------
+TD Loss
+Q-Learning Loss
+Policy Loss
+Value Loss
+Actor Loss
+Critic Loss
+Entropy Loss
+PPO Clipped Objective
+
+
+67. IMPORTANT HYPERPARAMETERS
+------------------------------------------------------------
+Learning Rate
+α
+
+Discount Factor
+γ
+
+Exploration Rate
+ε
+
+Batch Size
+Replay Buffer Size
+Target Update Frequency
+Entropy Coefficient
+GAE λ
+Clip Range
+Number of Epochs
+Network Size
+Training Steps
+Episode Length
+
+
+68. RL EVALUATION
+------------------------------------------------------------
+Average Reward
+Total Reward
+Episode Return
+Success Rate
+Episode Length
+Average Q-value
+Policy Loss
+Value Loss
+Entropy
+Sample Efficiency
+Training Stability
+Generalization
+
+
+69. RL ENVIRONMENTS / BENCHMARKS
+------------------------------------------------------------
+Gymnasium
+Atari
+MuJoCo
+PyBullet
+Box2D
+DM Control
+Procgen
+PettingZoo
+MiniGrid
+
+
+70. PYTHON RL LIBRARIES
+------------------------------------------------------------
+Gymnasium
+Stable-Baselines3
+RLlib
+CleanRL
+Tianshou
+TorchRL
+DeepMind Acme
+PettingZoo
+Shimmy
+
+
+71. GYMNASIUM BASIC API
+------------------------------------------------------------
+import gymnasium as gym
+
+env = gym.make("CartPole-v1")
+
+observation, info = env.reset()
+
+action = env.action_space.sample()
+
+observation, reward, terminated, truncated, info = \
+    env.step(action)
+
+env.close()
+
+
+72. STABLE-BASELINES3
+------------------------------------------------------------
+Popular Algorithms:
+
+PPO
+A2C
+DQN
+DDPG
+TD3
+SAC
+
+Typical workflow:
+
+Environment
+    ↓
+Algorithm
+    ↓
+Training
+    ↓
+Evaluation
+    ↓
+Save Model
+    ↓
+Deployment
+
+
+73. RL WITH PYTORCH
+------------------------------------------------------------
+torch
+torch.nn
+torch.optim
+torch.distributions
+
+Used for:
+
+Policy Network
+Value Network
+Q Network
+Actor
+Critic
+DQN
+PPO
+SAC
+DDPG
+TD3
+
+
+74. RL WITH TENSORFLOW
+------------------------------------------------------------
+TensorFlow
+Keras
+
+Used for:
+
+Policy Network
+Value Network
+Q Network
+Actor-Critic
+DQN
+PPO
+Custom RL
+
+
+75. RL PROJECTS — BEGINNER
+------------------------------------------------------------
+1. Multi-Armed Bandit
+2. Grid World
+3. FrozenLake
+4. CartPole
+5. Taxi
+6. MountainCar
+7. Simple Q-Learning Game
+8. Tic-Tac-Toe RL
+
+
+76. RL PROJECTS — INTERMEDIATE
+------------------------------------------------------------
+1. DQN CartPole
+2. DQN Atari
+3. LunarLander
+4. PPO CartPole
+5. PPO LunarLander
+6. SARSA GridWorld
+7. Q-Learning Maze
+8. Robot Navigation
+9. Self-Playing Tic-Tac-Toe
+10. Continuous Control with SAC
+
+
+77. RL PROJECTS — ADVANCED
+------------------------------------------------------------
+1. AlphaZero-style Game Agent
+2. MuZero-style Agent
+3. Multi-Agent RL
+4. Robot Arm Control
+5. Autonomous Navigation
+6. Drone Control
+7. Traffic Signal Optimization
+8. Portfolio Optimization
+9. RL-Based Recommendation
+10. LLM Agent with RL
+11. Offline RL
+12. RLHF
+13. Sim-to-Real Robotics
+
+
+78. RL ACTIVITIES
+------------------------------------------------------------
+Activity 1:
+Implement Random Agent
+
+Activity 2:
+Implement ε-Greedy
+
+Activity 3:
+Build Q-Table
+
+Activity 4:
+Implement Q-Learning
+
+Activity 5:
+Implement SARSA
+
+Activity 6:
+Compare Q-Learning vs SARSA
+
+Activity 7:
+Implement DQN
+
+Activity 8:
+Add Replay Buffer
+
+Activity 9:
+Add Target Network
+
+Activity 10:
+Implement Policy Gradient
+
+Activity 11:
+Implement Actor-Critic
+
+Activity 12:
+Train PPO
+
+Activity 13:
+Train SAC
+
+Activity 14:
+Compare RL Algorithms
+
+Activity 15:
+Plot Reward Curves
+
+
+79. RL EXPERIMENTS
+------------------------------------------------------------
+Experiment:
+
+Change γ
+↓
+Observe learning
+
+Change α
+↓
+Observe convergence
+
+Change ε
+↓
+Observe exploration
+
+Change Batch Size
+↓
+Observe stability
+
+Compare:
+
+DQN
+vs
+Double DQN
+vs
+Dueling DQN
+
+
+80. IMPORTANT RL PROBLEMS
+------------------------------------------------------------
+Sparse Reward
+Reward Shaping
+Exploration
+Sample Efficiency
+Credit Assignment
+Delayed Reward
+Instability
+High Variance
+Overestimation Bias
+Catastrophic Forgetting
+Partial Observability
+Non-Stationarity
+Reward Hacking
+Distribution Shift
+Sim-to-Real Gap
+
+
+81. RL + MACHINE LEARNING
+------------------------------------------------------------
+Machine Learning
+      ↓
+Reinforcement Learning
+      ↓
+Deep Reinforcement Learning
+      ↓
+Advanced RL
+      ↓
+RL + Robotics / Games / Agents
+      ↓
+RL + LLM / AI Agents
+
+
+82. LEARNING ROADMAP
+------------------------------------------------------------
+LEVEL 1
+Python
+NumPy
+Matplotlib
+Basic Probability
+Statistics
+Linear Algebra
+Calculus
+
+        ↓
+
+LEVEL 2
+Machine Learning Basics
+
+        ↓
+
+LEVEL 3
+RL Fundamentals
+State
+Action
+Reward
+Policy
+Value
+Q-value
+MDP
+
+        ↓
+
+LEVEL 4
+Dynamic Programming
+Monte Carlo
+TD Learning
+
+        ↓
+
+LEVEL 5
+SARSA
+Q-Learning
+Expected SARSA
+
+        ↓
+
+LEVEL 6
+Deep RL
+Neural Networks
+DQN
+Experience Replay
+Target Network
+
+        ↓
+
+LEVEL 7
+Policy Gradient
+REINFORCE
+Actor-Critic
+A2C
+A3C
+
+        ↓
+
+LEVEL 8
+PPO
+DDPG
+TD3
+SAC
+
+        ↓
+
+LEVEL 9
+Advanced RL
+Distributional RL
+Offline RL
+Hierarchical RL
+Multi-Agent RL
+Meta-RL
+Model-Based RL
+
+        ↓
+
+LEVEL 10
+RL Applications
+Robotics
+Games
+Autonomous Systems
+LLM Agents
+RLHF
+
+
+83. RL 80/20 — MOST IMPORTANT
+------------------------------------------------------------
+Must Learn:
+
+1. State
+2. Action
+3. Reward
+4. Policy
+5. Value Function
+6. Q-Value
+7. MDP
+8. Bellman Equation
+9. Exploration vs Exploitation
+10. Monte Carlo
+11. TD Learning
+12. SARSA
+13. Q-Learning
+14. Neural Networks
+15. DQN
+16. Experience Replay
+17. Target Network
+18. Policy Gradient
+19. Actor-Critic
+20. PPO
+21. SAC
+22. Gymnasium
+23. Stable-Baselines3
+24. RL Projects
+25. Evaluation
+
+
+84. BEST PRACTICAL ORDER
+------------------------------------------------------------
+Python
+   ↓
+NumPy
+   ↓
+Probability
+   ↓
+Statistics
+   ↓
+Linear Algebra
+   ↓
+Machine Learning
+   ↓
+Neural Networks
+   ↓
+Reinforcement Learning Basics
+   ↓
+Q-Learning
+   ↓
+DQN
+   ↓
+Policy Gradient
+   ↓
+Actor-Critic
+   ↓
+PPO
+   ↓
+SAC
+   ↓
+Advanced RL
+   ↓
+Robotics / Games / AI Agents
+============================================================
