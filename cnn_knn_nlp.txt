@@ -1,1 +1,4475 @@
+============================================================
+              CNN — CONVOLUTIONAL NEURAL NETWORK
+          METHODS + MODELS + LAYERS + ACTIVITIES
+============================================================
+
+
+1. CNN BASICS
+------------------------------------------------------------
+1.1 Artificial Neural Network
+1.2 Deep Neural Network
+1.3 Convolutional Neural Network
+1.4 Computer Vision
+1.5 Image Classification
+1.6 Object Detection
+1.7 Image Segmentation
+1.8 Feature Extraction
+1.9 Pattern Recognition
+
+
+2. CNN INPUT
+------------------------------------------------------------
+Image
+ ├── Height
+ ├── Width
+ └── Channels
+
+Grayscale:
+    H × W × 1
+
+RGB:
+    H × W × 3
+
+RGBA:
+    H × W × 4
+
+
+3. IMAGE REPRESENTATION
+------------------------------------------------------------
+Pixel
+
+Pixel Value
+
+Channel
+
+Image Tensor
+
+Feature Map
+
+Kernel / Filter
+
+Weight
+
+Bias
+
+
+4. CONVOLUTION
+------------------------------------------------------------
+Main operation:
+
+Input Image
+     ↓
+Kernel / Filter
+     ↓
+Convolution
+     ↓
+Feature Map
+
+
+Basic formula:
+
+Output(i,j)
+=
+ΣΣ Input(i+m,j+n) × Kernel(m,n)
+
+
+5. CONVOLUTION PARAMETERS
+------------------------------------------------------------
+Kernel Size
+
+Stride
+
+Padding
+
+Number of Filters
+
+Dilation
+
+Input Channels
+
+Output Channels
+
+
+6. KERNEL / FILTER
+------------------------------------------------------------
+3×3 Kernel
+
+5×5 Kernel
+
+7×7 Kernel
+
+Learnable Filters
+
+Edge Detector
+
+Texture Detector
+
+Pattern Detector
+
+
+7. PADDING
+------------------------------------------------------------
+Valid Padding
+
+Same Padding
+
+Zero Padding
+
+Reflect Padding
+
+Replicate Padding
+
+
+Purpose:
+
+Preserve spatial size
+
+Control output size
+
+Handle boundary information
+
+
+8. STRIDE
+------------------------------------------------------------
+Stride = 1
+
+Stride = 2
+
+Stride = 3
+
+
+Higher stride:
+
+↓ Spatial dimensions
+
+
+9. OUTPUT SIZE
+------------------------------------------------------------
+For 1D/2D convolution:
+
+Output Size:
+
+floor[
+(N + 2P - D(K-1) - 1)/S + 1
+]
+
+
+Where:
+
+N = input size
+P = padding
+D = dilation
+K = kernel size
+S = stride
+
+
+10. ACTIVATION FUNCTIONS
+------------------------------------------------------------
+ReLU
+
+    ReLU(x)=max(0,x)
+
+Sigmoid
+
+    σ(x)=1/(1+e^-x)
+
+Tanh
+
+GELU
+
+Leaky ReLU
+
+PReLU
+
+ELU
+
+SELU
+
+SiLU / Swish
+
+
+11. CNN BASIC ARCHITECTURE
+------------------------------------------------------------
+Input Image
+     ↓
+Convolution
+     ↓
+Activation
+     ↓
+Pooling
+     ↓
+Convolution
+     ↓
+Activation
+     ↓
+Pooling
+     ↓
+Flatten
+     ↓
+Fully Connected
+     ↓
+Output
+
+
+12. CONVOLUTIONAL LAYERS
+------------------------------------------------------------
+Conv1D
+
+Conv2D
+
+Conv3D
+
+Depthwise Convolution
+
+Pointwise Convolution
+
+Grouped Convolution
+
+Dilated Convolution
+
+Transposed Convolution
+
+
+13. DEPTHWISE SEPARABLE CONVOLUTION
+------------------------------------------------------------
+Depthwise Convolution
+        ↓
+Pointwise 1×1 Convolution
+
+
+Used heavily in:
+
+MobileNet
+
+
+14. POOLING
+------------------------------------------------------------
+Max Pooling
+
+Average Pooling
+
+Global Average Pooling
+
+Global Max Pooling
+
+Adaptive Average Pooling
+
+Adaptive Max Pooling
+
+
+15. MAX POOLING
+------------------------------------------------------------
+Takes maximum value
+from local region.
+
+
+Example:
+
+[1 3]
+[2 4]
+
+→ 4
+
+
+16. AVERAGE POOLING
+------------------------------------------------------------
+Takes average value
+from local region.
+
+
+17. GLOBAL AVERAGE POOLING
+------------------------------------------------------------
+Feature Map
+     ↓
+Average across spatial dimensions
+     ↓
+One value per channel
+
+
+18. NORMALIZATION
+------------------------------------------------------------
+Batch Normalization
+
+Layer Normalization
+
+Group Normalization
+
+Instance Normalization
+
+Weight Normalization
+
+
+CNN commonly uses:
+
+BatchNorm
+
+
+19. DROPOUT / REGULARIZATION
+------------------------------------------------------------
+Dropout
+
+Spatial Dropout
+
+L1 Regularization
+
+L2 Regularization
+
+Weight Decay
+
+Data Augmentation
+
+
+20. FLATTEN
+------------------------------------------------------------
+3D Feature Map
+     ↓
+1D Vector
+     ↓
+Fully Connected Layer
+
+
+21. FULLY CONNECTED LAYER
+------------------------------------------------------------
+Dense Layer
+
+Input Features
+     ↓
+Weights
+     ↓
+Bias
+     ↓
+Activation
+
+
+22. OUTPUT LAYERS
+------------------------------------------------------------
+Binary Classification:
+
+Sigmoid
+
+
+Multiclass Classification:
+
+Softmax
+
+
+Regression:
+
+Linear Output
+
+
+Multilabel:
+
+Sigmoid
+
+
+23. LOSS FUNCTIONS
+------------------------------------------------------------
+Binary Cross Entropy
+
+Categorical Cross Entropy
+
+Sparse Categorical Cross Entropy
+
+Mean Squared Error
+
+Mean Absolute Error
+
+Hinge Loss
+
+Focal Loss
+
+Dice Loss
+
+IoU Loss
+
+
+24. OPTIMIZERS
+------------------------------------------------------------
+SGD
+
+Momentum SGD
+
+Adam
+
+AdamW
+
+RMSprop
+
+Adagrad
+
+Adadelta
+
+Nadam
+
+
+25. LEARNING RATE METHODS
+------------------------------------------------------------
+Fixed Learning Rate
+
+Learning Rate Decay
+
+Step Decay
+
+Exponential Decay
+
+Cosine Annealing
+
+One Cycle
+
+Warmup
+
+ReduceLROnPlateau
+
+
+26. BACKPROPAGATION
+------------------------------------------------------------
+Forward Pass
+     ↓
+Prediction
+     ↓
+Loss
+     ↓
+Backpropagation
+     ↓
+Gradient
+     ↓
+Optimizer
+     ↓
+Update Weights
+
+
+27. CNN TRAINING
+------------------------------------------------------------
+Dataset
+ ↓
+Preprocessing
+ ↓
+Train/Validation/Test Split
+ ↓
+Data Loader
+ ↓
+CNN
+ ↓
+Forward Pass
+ ↓
+Loss
+ ↓
+Backpropagation
+ ↓
+Optimizer
+ ↓
+Validation
+ ↓
+Evaluation
+ ↓
+Save Model
+
+
+28. DATA PREPROCESSING
+------------------------------------------------------------
+Resize
+
+Crop
+
+Center Crop
+
+Random Crop
+
+Normalization
+
+Standardization
+
+Rescaling
+
+Channel Conversion
+
+Noise Removal
+
+Image Enhancement
+
+
+29. DATA AUGMENTATION
+------------------------------------------------------------
+Random Flip
+
+Horizontal Flip
+
+Vertical Flip
+
+Random Rotation
+
+Random Crop
+
+Random Resize
+
+Random Zoom
+
+Random Translation
+
+Random Shear
+
+Random Contrast
+
+Random Brightness
+
+Color Jitter
+
+Gaussian Noise
+
+Cutout
+
+Mixup
+
+CutMix
+
+
+30. CNN ARCHITECTURE MODELS
+------------------------------------------------------------
+LeNet
+
+AlexNet
+
+ZFNet
+
+VGGNet
+
+VGG16
+
+VGG19
+
+GoogLeNet
+
+Inception
+
+Inception-v3
+
+Inception-v4
+
+Xception
+
+ResNet
+
+ResNet18
+
+ResNet34
+
+ResNet50
+
+ResNet101
+
+ResNet152
+
+DenseNet
+
+DenseNet121
+
+DenseNet169
+
+DenseNet201
+
+SqueezeNet
+
+MobileNet
+
+MobileNetV2
+
+MobileNetV3
+
+ShuffleNet
+
+EfficientNet
+
+EfficientNet-B0
+
+EfficientNet-B1
+
+EfficientNet-B2
+
+EfficientNet-B3
+
+EfficientNet-B4
+
+EfficientNet-B5
+
+EfficientNet-B6
+
+EfficientNet-B7
+
+ConvNeXt
+
+
+31. CLASSICAL CNN MODELS
+------------------------------------------------------------
+LeNet-5
+
+AlexNet
+
+VGG
+
+GoogLeNet
+
+Inception
+
+ResNet
+
+DenseNet
+
+
+32. RESNET
+------------------------------------------------------------
+Residual Learning
+
+Residual Block
+
+Skip Connection
+
+Identity Mapping
+
+
+Basic idea:
+
+Input
+  ↓
+Convolution
+  ↓
+Convolution
+  ↓
++
+↑
+Skip Connection
+
+
+33. DENSENET
+------------------------------------------------------------
+Dense Connections
+
+Each layer receives
+features from previous layers.
+
+
+34. INCEPTION
+------------------------------------------------------------
+Parallel branches:
+
+1×1 Convolution
+
+3×3 Convolution
+
+5×5 Convolution
+
+Pooling
+
+Then:
+
+Concatenate
+
+
+35. VGG
+------------------------------------------------------------
+Simple architecture:
+
+Conv3×3
+Conv3×3
+Pooling
+Conv3×3
+Conv3×3
+Pooling
+...
+Dense
+
+
+36. ALEXNET
+------------------------------------------------------------
+Features:
+
+Convolution
+
+ReLU
+
+Pooling
+
+Dropout
+
+Fully Connected Layers
+
+
+37. MOBILENET
+------------------------------------------------------------
+Depthwise Separable Convolution
+
+Designed for:
+
+Mobile
+
+Edge Devices
+
+Low Computation
+
+
+38. EFFICIENTNET
+------------------------------------------------------------
+Compound Scaling:
+
+Depth
+
+Width
+
+Resolution
+
+
+39. CONVNEXT
+------------------------------------------------------------
+Modern CNN architecture
+
+Uses modernized convolutional design.
+
+
+40. TRANSFER LEARNING
+------------------------------------------------------------
+Pretrained CNN
+       ↓
+Feature Extraction
+       ↓
+New Classification Head
+       ↓
+Train
+
+
+Methods:
+
+Feature Extraction
+
+Fine-Tuning
+
+Partial Fine-Tuning
+
+Full Fine-Tuning
+
+
+41. FEATURE EXTRACTION
+------------------------------------------------------------
+Pretrained CNN
+     ↓
+Remove classifier
+     ↓
+Use convolutional features
+     ↓
+New classifier
+
+
+42. FINE-TUNING
+------------------------------------------------------------
+Pretrained Model
+     ↓
+Freeze some layers
+     ↓
+Train selected layers
+     ↓
+Gradually unfreeze
+     ↓
+Fine-tune
+
+
+43. FREEZING LAYERS
+------------------------------------------------------------
+Freeze:
+
+Early Layers
+
+Middle Layers
+
+Late Layers
+
+
+Early layers:
+
+Edges
+
+Textures
+
+
+Later layers:
+
+Complex objects
+
+
+44. IMAGE CLASSIFICATION
+------------------------------------------------------------
+Input Image
+     ↓
+CNN
+     ↓
+Feature Extraction
+     ↓
+Classifier
+     ↓
+Class Probability
+     ↓
+Predicted Class
+
+
+45. MULTICLASS CLASSIFICATION
+------------------------------------------------------------
+Example:
+
+Cat
+Dog
+Horse
+Bird
+
+
+Output:
+
+Softmax probabilities
+
+
+46. BINARY CLASSIFICATION
+------------------------------------------------------------
+Example:
+
+Cat vs Dog
+
+Output:
+
+0 → Cat
+1 → Dog
+
+
+47. MULTILABEL CLASSIFICATION
+------------------------------------------------------------
+One image can have:
+
+Dog = 1
+Car = 1
+Person = 1
+
+
+Uses:
+
+Multiple sigmoid outputs
+
+
+48. OBJECT DETECTION
+------------------------------------------------------------
+Image
+ ↓
+Feature Extraction
+ ↓
+Object Detection
+ ↓
+Bounding Boxes
+ ↓
+Class Labels
+ ↓
+Confidence Scores
+
+
+49. CNN OBJECT DETECTION MODELS
+------------------------------------------------------------
+R-CNN
+
+Fast R-CNN
+
+Faster R-CNN
+
+Mask R-CNN
+
+SSD
+
+YOLO
+
+RetinaNet
+
+FCOS
+
+
+50. YOLO
+------------------------------------------------------------
+You Only Look Once
+
+
+Versions include:
+
+YOLOv1
+YOLOv2
+YOLOv3
+YOLOv4
+YOLOv5
+YOLOv6
+YOLOv7
+YOLOv8
+YOLOv9
+YOLOv10
+YOLOv11
+YOLOv12
+
+
+Core tasks:
+
+Detection
+
+Classification
+
+Segmentation
+
+Pose Estimation
+
+
+51. IMAGE SEGMENTATION
+------------------------------------------------------------
+Semantic Segmentation
+
+Instance Segmentation
+
+Panoptic Segmentation
+
+
+52. SEGMENTATION MODELS
+------------------------------------------------------------
+FCN
+
+U-Net
+
+SegNet
+
+DeepLab
+
+DeepLabV3
+
+DeepLabV3+
+
+PSPNet
+
+Mask R-CNN
+
+U-Net++
+
+
+53. U-NET
+------------------------------------------------------------
+Encoder
+   ↓
+Bottleneck
+   ↓
+Decoder
+
+
+Skip Connections:
+
+Encoder → Decoder
+
+
+Used for:
+
+Medical Imaging
+
+Pixel-Level Segmentation
+
+
+54. CNN FOR FACE RECOGNITION
+------------------------------------------------------------
+Face Detection
+     ↓
+Face Alignment
+     ↓
+Feature Extraction
+     ↓
+Face Embedding
+     ↓
+Similarity Comparison
+     ↓
+Identity
+
+
+Models:
+
+FaceNet
+
+DeepFace
+
+ArcFace
+
+
+55. CNN FOR OCR
+------------------------------------------------------------
+Image
+ ↓
+Preprocessing
+ ↓
+CNN Feature Extraction
+ ↓
+Text Detection
+ ↓
+Text Recognition
+
+
+56. CNN FOR MEDICAL IMAGING
+------------------------------------------------------------
+X-Ray
+
+MRI
+
+CT
+
+Ultrasound
+
+Microscopy
+
+Retinal Images
+
+
+Tasks:
+
+Classification
+
+Detection
+
+Segmentation
+
+
+57. CNN FOR IMAGE ENHANCEMENT
+------------------------------------------------------------
+Super Resolution
+
+Denoising
+
+Deblurring
+
+Inpainting
+
+Colorization
+
+Image Restoration
+
+
+58. GENERATIVE CNN MODELS
+------------------------------------------------------------
+Autoencoder
+
+Convolutional Autoencoder
+
+Variational Autoencoder
+
+GAN
+
+DCGAN
+
+Conditional GAN
+
+CycleGAN
+
+Pix2Pix
+
+
+59. AUTOENCODER
+------------------------------------------------------------
+Input
+ ↓
+Encoder
+ ↓
+Latent Representation
+ ↓
+Decoder
+ ↓
+Reconstructed Image
+
+
+60. GAN
+------------------------------------------------------------
+Generator
+     ↓
+Fake Image
+     ↓
+Discriminator
+     ↓
+Real / Fake
+
+
+61. CNN + VIDEO
+------------------------------------------------------------
+Frame
+ ↓
+CNN Feature Extraction
+ ↓
+Temporal Modeling
+ ↓
+Video Prediction
+
+
+Models:
+
+2D CNN
+
+3D CNN
+
+CNN + RNN
+
+CNN + LSTM
+
+
+62. 3D CNN
+------------------------------------------------------------
+Input:
+
+Height × Width × Time
+
+
+Used for:
+
+Video
+
+Action Recognition
+
+Medical Volumes
+
+
+63. CNN + RNN
+------------------------------------------------------------
+Image
+ ↓
+CNN
+ ↓
+Feature Vector
+ ↓
+RNN/LSTM
+ ↓
+Sequence Output
+
+
+Applications:
+
+Image Captioning
+
+Video Analysis
+
+
+64. CNN + TRANSFORMER
+------------------------------------------------------------
+CNN
+ ↓
+Visual Features
+ ↓
+Transformer
+ ↓
+Prediction
+
+
+Applications:
+
+Vision
+
+Multimodal AI
+
+Image Understanding
+
+
+65. ATTENTION IN CNN
+------------------------------------------------------------
+Spatial Attention
+
+Channel Attention
+
+Self-Attention
+
+CBAM
+
+SE Block
+
+
+66. FEATURE PYRAMIDS
+------------------------------------------------------------
+Multi-scale Features:
+
+Low Resolution
+Medium Resolution
+High Resolution
+
+
+Used in:
+
+Object Detection
+
+Segmentation
+
+
+67. MULTI-SCALE CNN
+------------------------------------------------------------
+Small Objects
+     +
+Medium Objects
+     +
+Large Objects
+
+
+Feature Pyramid Network:
+
+FPN
+
+
+68. IMPORTANT CNN TECHNIQUES
+------------------------------------------------------------
+Convolution
+
+Padding
+
+Stride
+
+Pooling
+
+Batch Normalization
+
+Dropout
+
+Residual Connections
+
+Skip Connections
+
+Data Augmentation
+
+Transfer Learning
+
+Fine-Tuning
+
+Attention
+
+Feature Pyramid
+
+Global Average Pooling
+
+Regularization
+
+Learning Rate Scheduling
+
+
+69. CNN EVALUATION METRICS
+------------------------------------------------------------
+Accuracy
+
+Precision
+
+Recall
+
+F1 Score
+
+Specificity
+
+Sensitivity
+
+ROC-AUC
+
+PR-AUC
+
+Log Loss
+
+Top-1 Accuracy
+
+Top-5 Accuracy
+
+
+Object Detection:
+
+IoU
+
+mAP
+
+Precision
+
+Recall
+
+
+Segmentation:
+
+IoU
+
+Dice Score
+
+Pixel Accuracy
+
+mIoU
+
+
+70. CONFUSION MATRIX
+------------------------------------------------------------
+                 Predicted
+              Positive Negative
+
+Actual Positive    TP      FN
+
+Actual Negative    FP      TN
+
+
+Accuracy:
+
+(TP+TN)/(TP+TN+FP+FN)
+
+
+Precision:
+
+TP/(TP+FP)
+
+
+Recall:
+
+TP/(TP+FN)
+
+
+F1:
+
+2 × Precision × Recall
+-----------------------
+Precision + Recall
+
+
+71. IoU
+------------------------------------------------------------
+Intersection over Union:
+
+IoU =
+Area of Intersection
+--------------------
+Area of Union
+
+
+72. CNN HYPERPARAMETERS
+------------------------------------------------------------
+Learning Rate
+
+Batch Size
+
+Epochs
+
+Optimizer
+
+Kernel Size
+
+Stride
+
+Padding
+
+Number of Filters
+
+Dropout Rate
+
+Weight Decay
+
+Momentum
+
+Image Size
+
+Data Augmentation
+
+
+73. CNN MODEL DESIGN
+------------------------------------------------------------
+Input Size
+ ↓
+Conv Blocks
+ ↓
+Normalization
+ ↓
+Activation
+ ↓
+Pooling
+ ↓
+More Conv Blocks
+ ↓
+Global Pooling
+ ↓
+Dense
+ ↓
+Output
+
+
+74. CNN ACTIVITIES — BEGINNER
+------------------------------------------------------------
+1. Load an image
+2. Display image
+3. Resize image
+4. Normalize image
+5. Convert RGB to grayscale
+6. Apply convolution manually
+7. Create edge detector
+8. Apply pooling
+9. Build simple CNN
+10. Train MNIST classifier
+
+
+75. CNN ACTIVITIES — INTERMEDIATE
+------------------------------------------------------------
+1. CIFAR-10 classifier
+2. Data augmentation
+3. Batch normalization
+4. Dropout
+5. Transfer learning
+6. Use pretrained ResNet
+7. Use pretrained VGG
+8. Fine-tune MobileNet
+9. Compare CNN architectures
+10. Plot training curves
+11. Analyze confusion matrix
+12. Hyperparameter tuning
+
+
+76. CNN ACTIVITIES — ADVANCED
+------------------------------------------------------------
+1. Build ResNet block
+2. Build U-Net
+3. Object detection
+4. Image segmentation
+5. Face recognition
+6. OCR
+7. Image captioning
+8. GAN
+9. Autoencoder
+10. Super-resolution
+11. Video classification
+12. 3D CNN
+13. CNN + Transformer
+14. Attention-based CNN
+15. Model compression
+16. Quantization
+17. Pruning
+18. Knowledge distillation
+19. Edge deployment
+20. Explainable CNN
+
+
+77. CNN PROJECTS — BEGINNER
+------------------------------------------------------------
+1. MNIST Digit Classifier
+2. Fashion-MNIST Classifier
+3. Cat vs Dog Classifier
+4. CIFAR-10 Classifier
+5. Fruit Classifier
+6. Flower Classifier
+7. Hand Gesture Classifier
+8. Traffic Sign Classifier
+
+
+78. CNN PROJECTS — INTERMEDIATE
+------------------------------------------------------------
+1. Face Mask Detector
+2. Plant Disease Classifier
+3. Food Image Classifier
+4. Waste Classification
+5. Pneumonia X-Ray Classifier
+6. Skin Image Classifier
+7. Emotion Recognition
+8. Vehicle Classification
+9. Animal Classification
+10. Handwritten Character Recognition
+
+
+79. CNN PROJECTS — ADVANCED
+------------------------------------------------------------
+1. YOLO Object Detector
+2. U-Net Segmentation
+3. Face Recognition System
+4. OCR System
+5. Medical Image Segmentation
+6. Image Captioning
+7. Super Resolution
+8. Image Denoising
+9. Autonomous Driving Vision
+10. Real-Time Object Detection
+11. Video Action Recognition
+12. Industrial Defect Detection
+
+
+80. PYTORCH CNN COMPONENTS
+------------------------------------------------------------
+torch.Tensor
+
+torch.nn.Module
+
+torch.nn.Conv1d
+
+torch.nn.Conv2d
+
+torch.nn.Conv3d
+
+torch.nn.ConvTranspose2d
+
+torch.nn.MaxPool2d
+
+torch.nn.AvgPool2d
+
+torch.nn.AdaptiveAvgPool2d
+
+torch.nn.BatchNorm2d
+
+torch.nn.Dropout
+
+torch.nn.ReLU
+
+torch.nn.Linear
+
+torch.nn.Flatten
+
+torch.nn.Softmax
+
+
+81. TENSORFLOW / KERAS CNN COMPONENTS
+------------------------------------------------------------
+tf.keras.Model
+
+tf.keras.Sequential
+
+tf.keras.layers.Conv1D
+
+tf.keras.layers.Conv2D
+
+tf.keras.layers.Conv3D
+
+tf.keras.layers.MaxPooling2D
+
+tf.keras.layers.AveragePooling2D
+
+tf.keras.layers.GlobalAveragePooling2D
+
+tf.keras.layers.BatchNormalization
+
+tf.keras.layers.Dropout
+
+tf.keras.layers.ReLU
+
+tf.keras.layers.Dense
+
+tf.keras.layers.Flatten
+
+
+82. CNN TRAINING METHODS
+------------------------------------------------------------
+Sequential API
+
+Functional API
+
+Subclassing
+
+Custom Training Loop
+
+Transfer Learning
+
+Fine-Tuning
+
+
+83. CNN DEBUGGING
+------------------------------------------------------------
+Check:
+
+Input Shape
+
+Channel Order
+
+Image Scaling
+
+Labels
+
+Loss Function
+
+Output Activation
+
+Learning Rate
+
+Batch Size
+
+Overfitting
+
+Underfitting
+
+Data Leakage
+
+
+84. OVERFITTING
+------------------------------------------------------------
+Symptoms:
+
+Training Accuracy ↑
+
+Validation Accuracy ↓
+
+
+Solutions:
+
+Data Augmentation
+
+Dropout
+
+Weight Decay
+
+Early Stopping
+
+Batch Normalization
+
+More Data
+
+Transfer Learning
+
+
+85. UNDERFITTING
+------------------------------------------------------------
+Symptoms:
+
+Training Accuracy low
+
+Validation Accuracy low
+
+
+Solutions:
+
+Larger Model
+
+More Training
+
+Better Features
+
+Learning Rate Adjustment
+
+Reduce Regularization
+
+
+86. CNN EXPLAINABILITY
+------------------------------------------------------------
+Feature Visualization
+
+Activation Maps
+
+Saliency Maps
+
+Grad-CAM
+
+Integrated Gradients
+
+Occlusion Analysis
+
+
+87. MODEL COMPRESSION
+------------------------------------------------------------
+Quantization
+
+Pruning
+
+Knowledge Distillation
+
+Weight Sharing
+
+Low-Rank Approximation
+
+
+88. CNN DEPLOYMENT
+------------------------------------------------------------
+Train
+ ↓
+Validate
+ ↓
+Export
+ ↓
+Optimize
+ ↓
+Deploy
+
+
+Platforms:
+
+CPU
+
+GPU
+
+Mobile
+
+Edge Device
+
+Cloud
+
+Web
+
+
+89. CNN DEPLOYMENT TECHNOLOGIES
+------------------------------------------------------------
+ONNX
+
+TensorRT
+
+TensorFlow Lite
+
+Core ML
+
+OpenVINO
+
+TorchScript / PyTorch Export
+
+Edge AI
+
+
+90. CNN WORKFLOW
+------------------------------------------------------------
+Problem Definition
+ ↓
+Collect Images
+ ↓
+Label Data
+ ↓
+Clean Data
+ ↓
+Train/Validation/Test Split
+ ↓
+Preprocessing
+ ↓
+Augmentation
+ ↓
+Choose CNN
+ ↓
+Train
+ ↓
+Validate
+ ↓
+Tune Hyperparameters
+ ↓
+Evaluate
+ ↓
+Explain
+ ↓
+Optimize
+ ↓
+Deploy
+ ↓
+Monitor
+
+
+91. CNN LEARNING ROADMAP
+------------------------------------------------------------
+Python
+ ↓
+NumPy
+ ↓
+Matplotlib
+ ↓
+Image Processing
+ ↓
+Machine Learning
+ ↓
+Neural Networks
+ ↓
+Deep Learning
+ ↓
+CNN Basics
+ ↓
+Convolution
+ ↓
+Pooling
+ ↓
+CNN Architecture
+ ↓
+CNN Training
+ ↓
+Transfer Learning
+ ↓
+ResNet / VGG / Inception
+ ↓
+Object Detection
+ ↓
+YOLO
+ ↓
+Image Segmentation
+ ↓
+U-Net
+ ↓
+Advanced CNN
+ ↓
+Attention
+ ↓
+Vision Transformers
+ ↓
+Computer Vision
+ ↓
+Deployment
+
+
+92. CNN 80/20
+------------------------------------------------------------
+MUST KNOW:
+
+Image Tensor
+Convolution
+Kernel
+Feature Map
+Stride
+Padding
+Pooling
+ReLU
+Batch Normalization
+Dropout
+Flatten
+Dense Layer
+Softmax
+Loss Function
+Backpropagation
+Optimizer
+Data Augmentation
+Overfitting
+Transfer Learning
+Fine-Tuning
+ResNet
+MobileNet
+Object Detection
+YOLO
+Image Segmentation
+U-Net
+IoU
+mAP
+Grad-CAM
+
+
+============================================================
+                 CNN → COMPUTER VISION
+============================================================
+
+CNN
+ ↓
+Image Classification
+ ↓
+Feature Extraction
+ ↓
+Transfer Learning
+ ↓
+Object Detection
+ ↓
+YOLO
+ ↓
+Image Segmentation
+ ↓
+U-Net / Mask R-CNN
+ ↓
+Face Recognition
+ ↓
+OCR
+ ↓
+Video Understanding
+ ↓
+Multimodal AI
+ ↓
+Vision Transformer
+ ↓
+Advanced Computer Vision
+
+
+============================================================
+                 END OF CNN MASTER SHEET
+============================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+========================================================
+              KNN — MASTER CHEAT SHEET
+========================================================
+
+1. KNN BASICS
+--------------------------------------------------------
+KNN = K-Nearest Neighbors
+
+Type:
+    Supervised Learning
+
+Main Tasks:
+    1. Classification
+    2. Regression
+
+Basic Idea:
+    কাছের Kটি data point দেখে নতুন point-এর class/value
+    নির্ধারণ করা।
+
+Example:
+    K = 3
+
+    New Point
+       ↓
+    Find 3 nearest points
+       ↓
+    Majority Vote
+       ↓
+    Predicted Class
+
+
+========================================================
+2. IMPORTANT TERMS
+========================================================
+
+K
+    Number of neighbors
+
+Neighbor
+    কাছাকাছি data point
+
+Distance
+    দুই data point-এর দূরত্ব
+
+Feature
+    Input variable
+
+Target
+    Output variable
+
+Majority Vote
+    Classification-এ সবচেয়ে বেশি class নির্বাচন
+
+Average
+    Regression-এ nearest neighbors-এর average value
+
+
+========================================================
+3. KNN WORKFLOW
+========================================================
+
+Step 1:
+    Collect dataset
+
+Step 2:
+    Select features
+
+Step 3:
+    Scale/normalize features
+
+Step 4:
+    Choose K
+
+Step 5:
+    Calculate distance
+
+Step 6:
+    Find K nearest neighbors
+
+Step 7:
+    Classification:
+        Majority voting
+
+    Regression:
+        Average/weighted average
+
+Step 8:
+    Evaluate model
+
+
+========================================================
+4. DISTANCE METHODS
+========================================================
+
+1. Euclidean Distance
+
+d = sqrt(
+        (x1-y1)^2 +
+        (x2-y2)^2 +
+        ...
+      )
+
+Python:
+    from sklearn.metrics import euclidean_distances
+
+
+2. Manhattan Distance
+
+d = |x1-y1| + |x2-y2| + ...
+
+
+3. Minkowski Distance
+
+d = (Σ |xi-yi|^p)^(1/p)
+
+
+4. Chebyshev Distance
+
+d = max(|xi-yi|)
+
+
+5. Hamming Distance
+
+Used mainly for categorical/binary data.
+
+
+========================================================
+5. KNN CLASSIFICATION
+========================================================
+
+Example:
+
+K = 5
+
+Neighbors:
+
+    Class A
+    Class A
+    Class B
+    Class A
+    Class B
+
+Vote:
+
+    A = 3
+    B = 2
+
+Prediction:
+
+    Class A
+
+
+========================================================
+6. KNN REGRESSION
+========================================================
+
+Example:
+
+K = 3
+
+Nearest values:
+
+    10
+    12
+    14
+
+Prediction:
+
+    (10 + 12 + 14) / 3
+    = 12
+
+
+========================================================
+7. WEIGHTED KNN
+========================================================
+
+Normal KNN:
+    Every neighbor has equal importance.
+
+Weighted KNN:
+    Closer neighbors get higher importance.
+
+Common idea:
+
+    Weight = 1 / distance
+
+
+Example:
+
+Nearest:
+    A → very close
+    B → far
+
+A gets more influence than B.
+
+
+========================================================
+8. CHOOSING K
+========================================================
+
+Small K:
+    More sensitive to noise
+    Low bias
+    High variance
+
+Large K:
+    Less sensitive to noise
+    Higher bias
+    Lower variance
+
+
+Common starting values:
+
+    K = 3
+    K = 5
+    K = 7
+    K = 9
+
+
+Best K:
+    Choose using validation / cross-validation.
+
+
+========================================================
+9. EVEN vs ODD K
+========================================================
+
+Binary classification:
+
+Prefer odd K
+
+Example:
+    K = 3
+    K = 5
+    K = 7
+
+Why?
+
+    Reduce tie possibility.
+
+
+========================================================
+10. FEATURE SCALING
+========================================================
+
+VERY IMPORTANT FOR KNN.
+
+Example:
+
+Age:
+    20–60
+
+Salary:
+    20,000–500,000
+
+Without scaling:
+    Salary may dominate distance.
+
+
+Methods:
+
+1. StandardScaler
+
+2. MinMaxScaler
+
+3. RobustScaler
+
+
+Python:
+
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+
+========================================================
+11. KNN IN SCIKIT-LEARN
+========================================================
+
+Classification:
+
+from sklearn.neighbors import KNeighborsClassifier
+
+model = KNeighborsClassifier(
+    n_neighbors=5
+)
+
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+
+
+Regression:
+
+from sklearn.neighbors import KNeighborsRegressor
+
+model = KNeighborsRegressor(
+    n_neighbors=5
+)
+
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+
+
+========================================================
+12. IMPORTANT KNeighborsClassifier PARAMETERS
+========================================================
+
+KNeighborsClassifier(
+
+    n_neighbors=5,
+
+    weights='uniform',
+
+    algorithm='auto',
+
+    leaf_size=30,
+
+    p=2,
+
+    metric='minkowski',
+
+    metric_params=None,
+
+    n_jobs=None
+
+)
+
+
+Important:
+
+n_neighbors
+    K value
+
+weights
+    'uniform'
+    'distance'
+
+algorithm
+    'auto'
+    'ball_tree'
+    'kd_tree'
+    'brute'
+
+p
+    Distance parameter
+
+p = 1
+    Manhattan
+
+p = 2
+    Euclidean
+
+
+========================================================
+13. IMPORTANT METHODS
+========================================================
+
+model.fit(X, y)
+
+model.predict(X)
+
+model.predict_proba(X)
+
+model.kneighbors(X)
+
+model.kneighbors_graph(X)
+
+model.score(X, y)
+
+model.get_params()
+
+model.set_params(...)
+
+
+========================================================
+14. KNeighborsRegressor
+========================================================
+
+Important parameters:
+
+n_neighbors
+weights
+algorithm
+leaf_size
+p
+metric
+metric_params
+n_jobs
+
+
+Methods:
+
+fit()
+predict()
+kneighbors()
+kneighbors_graph()
+score()
+get_params()
+set_params()
+
+
+========================================================
+15. KNN METRICS
+========================================================
+
+Classification:
+
+Accuracy
+Precision
+Recall
+F1-score
+ROC-AUC
+Confusion Matrix
+
+
+Regression:
+
+MAE
+MSE
+RMSE
+R²
+
+
+Python:
+
+from sklearn.metrics import accuracy_score
+
+accuracy_score(y_test, y_pred)
+
+
+========================================================
+16. KNN + TRAIN TEST SPLIT
+========================================================
+
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42
+)
+
+
+========================================================
+17. KNN + SCALING + PIPELINE
+========================================================
+
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+
+model = Pipeline([
+    ("scaler", StandardScaler()),
+    ("knn", KNeighborsClassifier(n_neighbors=5))
+])
+
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+
+
+========================================================
+18. FIND BEST K
+========================================================
+
+Try:
+
+K = 1
+K = 3
+K = 5
+K = 7
+K = 9
+K = 11
+K = 15
+...
+
+Evaluate each K.
+
+Choose the K with the best
+validation/cross-validation performance.
+
+
+========================================================
+19. KNN + CROSS VALIDATION
+========================================================
+
+from sklearn.model_selection import cross_val_score
+
+scores = cross_val_score(
+    model,
+    X,
+    y,
+    cv=5
+)
+
+print(scores)
+print(scores.mean())
+
+
+========================================================
+20. KNN + GRID SEARCH
+========================================================
+
+from sklearn.model_selection import GridSearchCV
+
+params = {
+    "knn__n_neighbors": [3, 5, 7, 9, 11],
+    "knn__weights": ["uniform", "distance"],
+    "knn__p": [1, 2]
+}
+
+grid = GridSearchCV(
+    model,
+    params,
+    cv=5,
+    scoring="accuracy"
+)
+
+grid.fit(X_train, y_train)
+
+print(grid.best_params_)
+print(grid.best_score_)
+
+
+========================================================
+21. KNN + RANDOM SEARCH
+========================================================
+
+from sklearn.model_selection import RandomizedSearchCV
+
+search = RandomizedSearchCV(
+    model,
+    params,
+    cv=5,
+    n_iter=10
+)
+
+search.fit(X_train, y_train)
+
+
+========================================================
+22. KNN ADVANTAGES
+========================================================
+
+Advantages:
+
+1. Simple
+2. Easy to understand
+3. Easy to implement
+4. No complicated training process
+5. Works for classification
+6. Works for regression
+7. Can model nonlinear decision boundaries
+8. Useful for small datasets
+
+
+========================================================
+23. KNN DISADVANTAGES
+========================================================
+
+Disadvantages:
+
+1. Prediction can be slow
+2. Large datasets can be expensive
+3. Sensitive to feature scaling
+4. Sensitive to irrelevant features
+5. Sensitive to noisy data
+6. Choosing K is important
+7. High-dimensional data causes problems
+8. Requires storing training data
+
+
+========================================================
+24. KNN COMPLEXITY
+========================================================
+
+Training:
+
+Usually very cheap.
+
+Prediction:
+
+Can be expensive because distances
+must be calculated.
+
+Memory:
+
+Needs to retain training examples.
+
+
+========================================================
+25. KNN AND HIGH DIMENSIONAL DATA
+========================================================
+
+Problem:
+
+    Curse of Dimensionality
+
+As number of features increases:
+
+    Distance becomes less informative.
+
+Solutions:
+
+    Feature Selection
+    PCA
+    Dimensionality Reduction
+    Remove irrelevant features
+
+
+========================================================
+26. KNN ALGORITHMS FOR SEARCH
+========================================================
+
+Brute Force
+    Calculate distances directly.
+
+KD Tree
+    Efficient for some low-dimensional spaces.
+
+Ball Tree
+    Useful for certain distance structures.
+
+Auto
+    Scikit-learn chooses automatically.
+
+
+========================================================
+27. KNN RELATED MODELS
+========================================================
+
+KNeighborsClassifier
+KNeighborsRegressor
+
+RadiusNeighborsClassifier
+RadiusNeighborsRegressor
+
+NearestNeighbors
+
+
+========================================================
+28. NEAREST NEIGHBORS
+========================================================
+
+from sklearn.neighbors import NearestNeighbors
+
+nn = NearestNeighbors(
+    n_neighbors=5
+)
+
+nn.fit(X)
+
+distances, indices = nn.kneighbors(X)
+
+
+Uses:
+
+    Neighbor search
+    Recommendation
+    Similarity search
+    Anomaly-related tasks
+    Data exploration
+
+
+========================================================
+29. RADIUS NEIGHBORS
+========================================================
+
+Instead of:
+
+    fixed K neighbors
+
+Use:
+
+    all points inside a radius.
+
+
+Models:
+
+RadiusNeighborsClassifier
+RadiusNeighborsRegressor
+
+
+========================================================
+30. KNN FOR MULTICLASS
+========================================================
+
+Example:
+
+Classes:
+
+    Cat
+    Dog
+    Bird
+
+K = 5
+
+Neighbors:
+
+    Cat
+    Dog
+    Cat
+    Bird
+    Cat
+
+Prediction:
+
+    Cat
+
+
+========================================================
+31. KNN FOR BINARY CLASSIFICATION
+========================================================
+
+Classes:
+
+    0
+    1
+
+Example:
+
+K = 5
+
+0 → 2 votes
+1 → 3 votes
+
+Prediction:
+
+    1
+
+
+========================================================
+32. KNN FOR OUTLIER / ANOMALY IDEAS
+========================================================
+
+A point far from its neighbors
+may indicate unusual behavior.
+
+Related tools:
+
+NearestNeighbors
+Local Outlier Factor (LOF)
+
+
+========================================================
+33. KNN + PCA
+========================================================
+
+Workflow:
+
+Raw Data
+   ↓
+Scaling
+   ↓
+PCA
+   ↓
+KNN
+   ↓
+Prediction
+
+
+Example:
+
+from sklearn.decomposition import PCA
+
+pca = PCA(n_components=2)
+
+
+========================================================
+34. KNN PROJECTS
+========================================================
+
+BEGINNER:
+
+1. Iris Flower Classification
+2. Wine Classification
+3. Breast Cancer Classification
+4. Simple Student Classification
+5. Fruit Classification
+
+
+INTERMEDIATE:
+
+6. Customer Classification
+7. Handwritten Digit Classification
+8. Credit Risk Classification
+9. Recommendation System
+10. Movie Similarity
+
+
+ADVANCED:
+
+11. Image Classification
+12. Large-scale Nearest Neighbor Search
+13. Anomaly Detection
+14. Recommendation Engine
+15. High-dimensional KNN
+16. KNN + PCA
+17. KNN + Feature Selection
+18. KNN Hyperparameter Optimization
+
+
+========================================================
+35. KNN ACTIVITIES
+========================================================
+
+Activity 1:
+    Implement Euclidean distance manually.
+
+Activity 2:
+    Implement KNN from scratch.
+
+Activity 3:
+    Change K values.
+
+Activity 4:
+    Compare K = 1, 3, 5, 7, 9.
+
+Activity 5:
+    Compare scaled vs unscaled data.
+
+Activity 6:
+    Compare Euclidean vs Manhattan.
+
+Activity 7:
+    Compare uniform vs distance weighting.
+
+Activity 8:
+    Use cross-validation.
+
+Activity 9:
+    Use GridSearchCV.
+
+Activity 10:
+    Compare KNN with other classifiers.
+
+
+========================================================
+36. KNN FROM SCRATCH — BASIC IDEA
+========================================================
+
+1. Store training data.
+
+2. Take a new point.
+
+3. Calculate distance from every
+   training point.
+
+4. Sort distances.
+
+5. Select K nearest points.
+
+6. Count their classes.
+
+7. Select majority class.
+
+
+========================================================
+37. KNN + MACHINE LEARNING WORKFLOW
+========================================================
+
+Dataset
+   ↓
+Data Cleaning
+   ↓
+EDA
+   ↓
+Feature Selection
+   ↓
+Train/Test Split
+   ↓
+Feature Scaling
+   ↓
+KNN
+   ↓
+Cross Validation
+   ↓
+Hyperparameter Tuning
+   ↓
+Evaluation
+   ↓
+Deployment
+
+
+========================================================
+38. KNN LEARNING ROADMAP
+========================================================
+
+LEVEL 1 — BASIC
+
+    What is KNN?
+    Classification
+    Regression
+    K
+    Neighbors
+    Distance
+
+
+LEVEL 2 — MATH
+
+    Euclidean Distance
+    Manhattan Distance
+    Minkowski Distance
+    Weighted Distance
+
+
+LEVEL 3 — PREPROCESSING
+
+    Feature Scaling
+    Standardization
+    Normalization
+    Feature Selection
+
+
+LEVEL 4 — SCIKIT-LEARN
+
+    KNeighborsClassifier
+    KNeighborsRegressor
+    NearestNeighbors
+    RadiusNeighborsClassifier
+    RadiusNeighborsRegressor
+
+
+LEVEL 5 — MODEL SELECTION
+
+    Cross Validation
+    GridSearchCV
+    RandomizedSearchCV
+    Best K
+
+
+LEVEL 6 — ADVANCED
+
+    Curse of Dimensionality
+    KD Tree
+    Ball Tree
+    Weighted KNN
+    PCA + KNN
+    Feature Selection + KNN
+    Large-scale Neighbor Search
+
+
+========================================================
+39. KNN — 80/20 TOPICS
+========================================================
+
+Must Learn:
+
+    KNN concept
+    Classification
+    Regression
+    K value
+    Euclidean distance
+    Feature scaling
+    KNeighborsClassifier
+    KNeighborsRegressor
+    predict()
+    predict_proba()
+    Cross-validation
+    Best K
+    GridSearchCV
+    Curse of Dimensionality
+
+
+========================================================
+40. KNN → NEXT ML TOPICS
+========================================================
+
+KNN
+ ↓
+Linear Regression
+ ↓
+Logistic Regression
+ ↓
+Decision Tree
+ ↓
+Random Forest
+ ↓
+SVM
+ ↓
+Naive Bayes
+ ↓
+Gradient Boosting
+ ↓
+XGBoost / LightGBM / CatBoost
+ ↓
+Clustering
+ ↓
+PCA
+ ↓
+Neural Networks
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+========================================================
+        NLP — MASTER ROADMAP / CHEAT SHEET
+========================================================
+
+1. NLP BASICS
+--------------------------------------------------------
+NLP = Natural Language Processing
+
+Main Goals:
+    Understand Language
+    Analyze Text
+    Classify Text
+    Extract Information
+    Generate Text
+    Translate Language
+    Answer Questions
+
+
+========================================================
+2. NLP MAIN BRANCHES
+========================================================
+
+1. Text Processing
+2. Text Classification
+3. Sentiment Analysis
+4. Information Extraction
+5. Named Entity Recognition (NER)
+6. Part-of-Speech Tagging (POS)
+7. Syntax Analysis
+8. Semantic Analysis
+9. Language Modeling
+10. Machine Translation
+11. Question Answering
+12. Text Summarization
+13. Text Generation
+14. Speech Processing
+15. Dialogue Systems
+16. Information Retrieval
+17. Document Understanding
+18. Conversational AI
+19. Multilingual NLP
+20. Multimodal NLP
+
+
+========================================================
+3. TEXT PREPROCESSING
+========================================================
+
+Tokenization
+Sentence Tokenization
+Word Tokenization
+Subword Tokenization
+Character Tokenization
+
+Lowercasing
+
+Stopword Removal
+
+Punctuation Removal
+
+Whitespace Cleaning
+
+Spelling Normalization
+
+Text Cleaning
+
+HTML Removal
+
+URL Removal
+
+Emoji Processing
+
+Special Character Handling
+
+Language Detection
+
+
+========================================================
+4. TOKENIZATION
+========================================================
+
+Word Tokenization
+
+Sentence Tokenization
+
+Character Tokenization
+
+Subword Tokenization
+
+Common algorithms:
+
+    BPE
+    WordPiece
+    Unigram
+    SentencePiece
+
+
+Example:
+
+"I love NLP"
+
+Tokens:
+
+    ["I", "love", "NLP"]
+
+
+========================================================
+5. STEMMING
+========================================================
+
+Goal:
+
+    Reduce word to root-like form.
+
+Examples:
+
+    playing
+    played
+    plays
+
+May become:
+
+    play
+
+
+Algorithms:
+
+    Porter Stemmer
+    Snowball Stemmer
+    Lancaster Stemmer
+
+
+========================================================
+6. LEMMATIZATION
+========================================================
+
+Goal:
+
+    Convert word into meaningful base form.
+
+Example:
+
+    better → good
+    running → run
+    studies → study
+
+
+Difference:
+
+    Stemming
+        Fast
+        Can produce invalid words
+
+    Lemmatization
+        More linguistically meaningful
+        Usually slower
+
+
+========================================================
+7. TEXT REPRESENTATION
+========================================================
+
+Text must be converted into numbers.
+
+Methods:
+
+    Bag of Words
+    N-Gram
+    TF
+    IDF
+    TF-IDF
+    One-Hot Encoding
+    Word Embedding
+    Sentence Embedding
+    Document Embedding
+
+
+========================================================
+8. BAG OF WORDS
+========================================================
+
+BoW = Bag of Words
+
+Example:
+
+    "I love NLP"
+    "I love AI"
+
+Vocabulary:
+
+    I
+    love
+    NLP
+    AI
+
+
+Vector representation:
+
+    [1, 1, 1, 0]
+    [1, 1, 0, 1]
+
+
+========================================================
+9. N-GRAM
+========================================================
+
+Unigram:
+
+    I
+    love
+    NLP
+
+Bigram:
+
+    I love
+    love NLP
+
+Trigram:
+
+    I love NLP
+
+
+Types:
+
+    Unigram
+    Bigram
+    Trigram
+    N-gram
+
+
+========================================================
+10. TF-IDF
+========================================================
+
+TF
+    Term Frequency
+
+IDF
+    Inverse Document Frequency
+
+TF-IDF
+    TF × IDF
+
+
+Purpose:
+
+    Identify important words in documents.
+
+
+Python:
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+vectorizer = TfidfVectorizer()
+
+X = vectorizer.fit_transform(text)
+
+
+========================================================
+11. WORD EMBEDDINGS
+========================================================
+
+Represent words as dense numerical vectors.
+
+Main methods:
+
+    Word2Vec
+    GloVe
+    FastText
+
+
+Concept:
+
+    Word → Vector
+
+
+Example:
+
+    "king" → vector
+    "queen" → vector
+
+
+========================================================
+12. WORD2VEC
+========================================================
+
+Two main architectures:
+
+    CBOW
+    Skip-Gram
+
+
+CBOW:
+
+    Context → Target word
+
+
+Skip-Gram:
+
+    Target word → Context words
+
+
+========================================================
+13. GLOVE
+========================================================
+
+GloVe = Global Vectors for Word Representation
+
+Uses:
+
+    Global word co-occurrence statistics.
+
+
+========================================================
+14. FASTTEXT
+========================================================
+
+FastText represents words using
+character/subword information.
+
+Useful for:
+
+    Rare words
+    Morphologically rich languages
+    Out-of-vocabulary-related cases
+
+
+========================================================
+15. POS TAGGING
+========================================================
+
+POS = Part of Speech
+
+Examples:
+
+    Noun
+    Verb
+    Adjective
+    Adverb
+    Pronoun
+    Preposition
+    Conjunction
+    Determiner
+
+
+Example:
+
+    "The cat runs"
+
+    The → Determiner
+    cat → Noun
+    runs → Verb
+
+
+========================================================
+16. NAMED ENTITY RECOGNITION
+========================================================
+
+NER identifies entities.
+
+Examples:
+
+    Person
+    Organization
+    Location
+    Date
+    Money
+    Product
+    Event
+
+
+Example:
+
+    "Google is in California"
+
+    Google → Organization
+    California → Location
+
+
+========================================================
+17. SYNTAX
+========================================================
+
+Syntax = sentence structure.
+
+Topics:
+
+    Grammar
+    Constituency Parsing
+    Dependency Parsing
+    Parse Tree
+    Dependency Tree
+
+
+========================================================
+18. SEMANTICS
+========================================================
+
+Semantic analysis studies meaning.
+
+Topics:
+
+    Word Meaning
+    Sentence Meaning
+    Word Sense
+    Semantic Similarity
+    Semantic Role Labeling
+    Contextual Meaning
+
+
+========================================================
+19. TEXT CLASSIFICATION
+========================================================
+
+Tasks:
+
+    Spam Detection
+    Topic Classification
+    News Classification
+    Toxicity Detection
+    Intent Classification
+    Emotion Classification
+
+
+Models:
+
+    Naive Bayes
+    Logistic Regression
+    SVM
+    Decision Tree
+    Random Forest
+    Neural Networks
+    Transformers
+
+
+========================================================
+20. SENTIMENT ANALYSIS
+========================================================
+
+Determine sentiment:
+
+    Positive
+    Negative
+    Neutral
+
+
+Advanced:
+
+    Emotion Detection
+    Aspect-Based Sentiment Analysis
+
+
+Example:
+
+    "The movie was excellent."
+
+    → Positive
+
+
+========================================================
+21. INFORMATION EXTRACTION
+========================================================
+
+Extract useful information from text.
+
+Includes:
+
+    NER
+    Relation Extraction
+    Event Extraction
+    Entity Linking
+    Keyword Extraction
+
+
+========================================================
+22. INFORMATION RETRIEVAL
+========================================================
+
+Find relevant documents/information.
+
+Topics:
+
+    Search Engine
+    Document Retrieval
+    Ranking
+    Query Processing
+    Semantic Search
+    Vector Search
+
+
+========================================================
+23. TEXT SIMILARITY
+========================================================
+
+Methods:
+
+    Cosine Similarity
+    Jaccard Similarity
+    Euclidean Distance
+    Semantic Similarity
+
+
+Used for:
+
+    Duplicate Detection
+    Recommendation
+    Search
+    Document Matching
+
+
+========================================================
+24. LANGUAGE MODEL
+========================================================
+
+A language model learns patterns in language.
+
+Traditional:
+
+    N-gram Language Model
+
+
+Neural:
+
+    RNN
+    LSTM
+    GRU
+    Transformer
+
+
+Modern:
+
+    BERT
+    GPT
+    T5
+    LLaMA
+    etc.
+
+
+========================================================
+25. RNN
+========================================================
+
+RNN = Recurrent Neural Network
+
+Designed for sequential data.
+
+NLP uses:
+
+    Text
+    Sentences
+    Sequences
+
+
+Problem:
+
+    Vanishing Gradient
+
+
+========================================================
+26. LSTM
+========================================================
+
+LSTM = Long Short-Term Memory
+
+Designed to handle long-term dependencies.
+
+Components:
+
+    Forget Gate
+    Input Gate
+    Output Gate
+    Cell State
+
+
+========================================================
+27. GRU
+========================================================
+
+GRU = Gated Recurrent Unit
+
+Main gates:
+
+    Update Gate
+    Reset Gate
+
+
+Usually simpler than LSTM.
+
+
+========================================================
+28. ATTENTION
+========================================================
+
+Attention allows a model to focus on
+important parts of the input.
+
+Basic idea:
+
+    Query
+    Key
+    Value
+
+
+Attention:
+
+    Attention(Q,K,V)
+
+
+========================================================
+29. TRANSFORMER
+========================================================
+
+Transformer is one of the most important
+modern NLP architectures.
+
+Main components:
+
+    Encoder
+    Decoder
+    Self-Attention
+    Multi-Head Attention
+    Feed Forward Network
+    Positional Encoding
+    Layer Normalization
+    Residual Connection
+
+
+========================================================
+30. SELF-ATTENTION
+========================================================
+
+Input:
+
+    X
+
+Create:
+
+    Q = Query
+    K = Key
+    V = Value
+
+
+Formula:
+
+    Attention(Q,K,V)
+    =
+    softmax(QKᵀ / √dₖ)V
+
+
+========================================================
+31. BERT
+========================================================
+
+BERT = Bidirectional Encoder Representations
+       from Transformers
+
+Architecture:
+
+    Transformer Encoder
+
+
+Common tasks:
+
+    Text Classification
+    NER
+    Question Answering
+    Sentence Classification
+    Embeddings
+
+
+========================================================
+32. GPT
+========================================================
+
+GPT = Generative Pre-trained Transformer
+
+Architecture:
+
+    Transformer Decoder-style architecture
+
+
+Used for:
+
+    Text Generation
+    Question Answering
+    Summarization
+    Conversation
+    Coding
+    Reasoning
+
+
+========================================================
+33. OTHER TRANSFORMER MODELS
+========================================================
+
+BERT
+RoBERTa
+ALBERT
+DistilBERT
+ELECTRA
+DeBERTa
+
+GPT
+T5
+BART
+XLNet
+
+LLaMA
+Mistral
+Gemma
+Qwen
+
+
+========================================================
+34. TEXT GENERATION
+========================================================
+
+Tasks:
+
+    Story Generation
+    Email Generation
+    Article Generation
+    Code Generation
+    Dialogue Generation
+
+
+Methods:
+
+    RNN
+    LSTM
+    Transformer
+    LLM
+
+
+========================================================
+35. MACHINE TRANSLATION
+========================================================
+
+Example:
+
+    English → Bengali
+
+    Bengali → English
+
+
+Approaches:
+
+    Rule-Based
+    Statistical Machine Translation
+    Neural Machine Translation
+    Transformer-based Translation
+
+
+========================================================
+36. TEXT SUMMARIZATION
+========================================================
+
+Types:
+
+    Extractive Summarization
+    Abstractive Summarization
+
+
+Extractive:
+
+    Select important existing sentences.
+
+
+Abstractive:
+
+    Generate a new summary.
+
+
+========================================================
+37. QUESTION ANSWERING
+========================================================
+
+Types:
+
+    Extractive QA
+    Generative QA
+    Open-Domain QA
+    Closed-Domain QA
+
+
+Examples:
+
+    Question → Answer
+
+
+========================================================
+38. CHATBOT
+========================================================
+
+Traditional chatbot:
+
+    Rules
+    Intent Classification
+    Entity Extraction
+
+
+Modern chatbot:
+
+    Transformer
+    LLM
+    RAG
+    Tools
+    Agents
+
+
+========================================================
+39. SPEECH + NLP
+========================================================
+
+Speech Recognition:
+
+    Speech → Text
+
+
+Text-to-Speech:
+
+    Text → Speech
+
+
+Components:
+
+    ASR
+    TTS
+    NLP
+    Dialogue Management
+
+
+ASR = Automatic Speech Recognition
+
+TTS = Text-to-Speech
+
+
+========================================================
+40. MULTILINGUAL NLP
+========================================================
+
+Languages:
+
+    English
+    Bengali
+    Arabic
+    Hindi
+    Chinese
+    Japanese
+    Korean
+    etc.
+
+
+Tasks:
+
+    Translation
+    Classification
+    NER
+    QA
+    Summarization
+    Generation
+
+
+========================================================
+41. BANGLA NLP
+========================================================
+
+Important tasks:
+
+    Bangla Tokenization
+    Bangla POS Tagging
+    Bangla NER
+    Bangla Sentiment Analysis
+    Bangla Text Classification
+    Bangla Translation
+    Bangla OCR
+    Bangla Speech Recognition
+    Bangla Text Generation
+
+
+Challenges:
+
+    Rich morphology
+    Spelling variation
+    Code-switching
+    Limited resources
+    Dialects
+    Tokenization complexity
+
+
+========================================================
+42. NLP LIBRARIES
+========================================================
+
+Python:
+
+    NLTK
+    spaCy
+    Gensim
+    TextBlob
+    scikit-learn
+    Transformers
+    Hugging Face
+    Sentence Transformers
+
+
+Deep Learning:
+
+    PyTorch
+    TensorFlow
+
+
+Data:
+
+    NumPy
+    Pandas
+
+
+========================================================
+43. NLTK
+========================================================
+
+NLTK = Natural Language Toolkit
+
+Topics:
+
+    Tokenization
+    Stemming
+    Lemmatization
+    POS Tagging
+    Parsing
+    Corpora
+    WordNet
+    Classification
+
+
+Common:
+
+    nltk.tokenize
+    nltk.stem
+    nltk.corpus
+    nltk.tag
+    nltk.chunk
+
+
+========================================================
+44. SPACY
+========================================================
+
+spaCy is designed for practical NLP.
+
+Common:
+
+    Tokenization
+    POS
+    NER
+    Dependency Parsing
+    Lemmatization
+    Similarity
+    Pipelines
+
+
+Example:
+
+import spacy
+
+nlp = spacy.load("en_core_web_sm")
+
+doc = nlp("Apple is a company.")
+
+for token in doc:
+    print(token.text, token.pos_)
+
+
+========================================================
+45. SCIKIT-LEARN NLP
+========================================================
+
+Main tools:
+
+    CountVectorizer
+    TfidfVectorizer
+    HashingVectorizer
+
+
+Models:
+
+    LogisticRegression
+    MultinomialNB
+    LinearSVC
+    RandomForestClassifier
+
+
+Pipeline:
+
+    Text
+      ↓
+    TF-IDF
+      ↓
+    ML Model
+      ↓
+    Prediction
+
+
+========================================================
+46. HUGGING FACE
+========================================================
+
+Main ecosystem:
+
+    Transformers
+    Datasets
+    Tokenizers
+    Evaluate
+    Accelerate
+    PEFT
+
+
+Common models:
+
+    BERT
+    RoBERTa
+    T5
+    BART
+    GPT-style models
+    LLaMA-family models
+    Multilingual models
+
+
+========================================================
+47. TRANSFORMERS LIBRARY
+========================================================
+
+Common classes/tasks:
+
+    AutoTokenizer
+    AutoModel
+    AutoModelForSequenceClassification
+    AutoModelForTokenClassification
+    AutoModelForQuestionAnswering
+    AutoModelForCausalLM
+    AutoModelForSeq2SeqLM
+
+
+Pipeline:
+
+from transformers import pipeline
+
+classifier = pipeline(
+    "sentiment-analysis"
+)
+
+result = classifier(
+    "I love NLP"
+)
+
+
+========================================================
+48. NLP DATASETS
+========================================================
+
+Common datasets:
+
+    IMDB
+    AG News
+    SST
+    CoNLL
+    SQuAD
+    GLUE
+    SuperGLUE
+
+
+Tasks:
+
+    Classification
+    NER
+    QA
+    Sentiment
+    Translation
+
+
+========================================================
+49. NLP EVALUATION
+========================================================
+
+Classification:
+
+    Accuracy
+    Precision
+    Recall
+    F1
+
+
+NER:
+
+    Precision
+    Recall
+    F1
+
+
+Translation:
+
+    BLEU
+    chrF
+
+
+Summarization:
+
+    ROUGE
+
+
+Generation:
+
+    Perplexity
+    BLEU
+    ROUGE
+    BERTScore
+    Human Evaluation
+
+
+========================================================
+50. NLP EMBEDDINGS
+========================================================
+
+Types:
+
+    Word Embedding
+    Sentence Embedding
+    Document Embedding
+
+
+Modern:
+
+    Transformer Embeddings
+    Sentence Transformers
+
+
+Uses:
+
+    Semantic Search
+    RAG
+    Recommendation
+    Clustering
+    Similarity
+
+
+========================================================
+51. SEMANTIC SEARCH
+========================================================
+
+Traditional:
+
+    Keyword Search
+
+
+Modern:
+
+    Text
+      ↓
+    Embedding
+      ↓
+    Vector Database
+      ↓
+    Similarity Search
+      ↓
+    Relevant Documents
+
+
+========================================================
+52. RAG
+========================================================
+
+RAG = Retrieval-Augmented Generation
+
+Workflow:
+
+    User Question
+          ↓
+    Embedding
+          ↓
+    Vector Search
+          ↓
+    Retrieve Documents
+          ↓
+    LLM
+          ↓
+    Answer
+
+
+Components:
+
+    Embeddings
+    Vector Database
+    Retriever
+    Reranker
+    LLM
+    Prompt
+
+
+========================================================
+53. NLP + LLM
+========================================================
+
+NLP
+ ↓
+Machine Learning
+ ↓
+Deep Learning
+ ↓
+RNN/LSTM
+ ↓
+Attention
+ ↓
+Transformer
+ ↓
+BERT/GPT
+ ↓
+LLM
+ ↓
+RAG
+ ↓
+Agents
+
+
+========================================================
+54. FINE-TUNING
+========================================================
+
+Base Model
+    ↓
+Training Dataset
+    ↓
+Fine-Tuning
+    ↓
+Task-Specific Model
+
+
+Methods:
+
+    Full Fine-Tuning
+    Transfer Learning
+    PEFT
+    LoRA
+    QLoRA
+
+
+========================================================
+55. NLP + AI AGENTS
+========================================================
+
+LLM
+ ↓
+Reasoning
+ ↓
+Tool Calling
+ ↓
+Memory
+ ↓
+Planning
+ ↓
+Action
+ ↓
+Observation
+ ↓
+Final Response
+
+
+Applications:
+
+    Research Agent
+    Customer Support Agent
+    Coding Agent
+    Data Analysis Agent
+
+
+========================================================
+56. NLP PROJECTS — BEGINNER
+========================================================
+
+1. Word Counter
+2. Sentence Counter
+3. Text Cleaner
+4. Tokenizer
+5. Stopword Remover
+6. Stemming Tool
+7. Lemmatization Tool
+8. Word Frequency Analyzer
+9. Simple Spell Checker
+10. Language Detector
+
+
+========================================================
+57. NLP PROJECTS — INTERMEDIATE
+========================================================
+
+1. Spam Email Classifier
+2. Sentiment Analyzer
+3. News Classifier
+4. Fake News Classifier
+5. Text Similarity System
+6. Resume Classifier
+7. Topic Classifier
+8. NER System
+9. Keyword Extractor
+10. Document Search Engine
+
+
+========================================================
+58. NLP PROJECTS — ADVANCED
+========================================================
+
+1. Machine Translation
+2. Question Answering
+3. Text Summarizer
+4. Semantic Search
+5. Recommendation System
+6. RAG Chatbot
+7. Document QA
+8. Fine-Tuned BERT
+9. Fine-Tuned LLM
+10. Multilingual Chatbot
+11. Bangla NLP System
+12. Voice Assistant
+13. AI Customer Support
+14. AI Research Assistant
+15. AI Agent
+
+
+========================================================
+59. NLP ACTIVITIES
+========================================================
+
+Activity 1:
+    Tokenize 100 sentences.
+
+Activity 2:
+    Remove stopwords.
+
+Activity 3:
+    Compare stemming and lemmatization.
+
+Activity 4:
+    Create Bag-of-Words.
+
+Activity 5:
+    Create TF-IDF vectors.
+
+Activity 6:
+    Train sentiment classifier.
+
+Activity 7:
+    Train spam classifier.
+
+Activity 8:
+    Create NER system.
+
+Activity 9:
+    Calculate text similarity.
+
+Activity 10:
+    Create word embeddings.
+
+Activity 11:
+    Use BERT.
+
+Activity 12:
+    Fine-tune a Transformer.
+
+Activity 13:
+    Build semantic search.
+
+Activity 14:
+    Build RAG.
+
+Activity 15:
+    Build an NLP AI Agent.
+
+
+========================================================
+60. NLP LEARNING ROADMAP
+========================================================
+
+LEVEL 1 — PYTHON
+    Python Basics
+    NumPy
+    Pandas
+
+
+LEVEL 2 — MATH
+    Probability
+    Statistics
+    Linear Algebra
+
+
+LEVEL 3 — NLP FUNDAMENTALS
+    Text Processing
+    Tokenization
+    Stemming
+    Lemmatization
+    POS
+    NER
+    Syntax
+    Semantics
+
+
+LEVEL 4 — TEXT REPRESENTATION
+    BoW
+    N-Gram
+    TF-IDF
+    Word2Vec
+    GloVe
+    FastText
+
+
+LEVEL 5 — MACHINE LEARNING
+    Naive Bayes
+    Logistic Regression
+    SVM
+    Classification
+    Evaluation
+
+
+LEVEL 6 — DEEP LEARNING
+    Neural Networks
+    RNN
+    LSTM
+    GRU
+    Attention
+
+
+LEVEL 7 — TRANSFORMERS
+    Self-Attention
+    Multi-Head Attention
+    Transformer
+    BERT
+    GPT
+    T5
+
+
+LEVEL 8 — MODERN NLP
+    Hugging Face
+    Embeddings
+    Sentence Transformers
+    Semantic Search
+    Vector Database
+
+
+LEVEL 9 — LLM
+    LLMs
+    Prompt Engineering
+    Fine-Tuning
+    LoRA
+    QLoRA
+
+
+LEVEL 10 — RAG
+    Retrieval
+    Embeddings
+    Vector DB
+    Reranking
+    RAG
+
+
+LEVEL 11 — AGENTIC NLP
+    Tool Calling
+    Memory
+    Planning
+    Agents
+
+
+========================================================
+61. NLP + COMPUTER VISION
+========================================================
+
+Multimodal AI:
+
+    Text
+      +
+    Image
+      +
+    Audio
+      +
+    Video
+
+Examples:
+
+    Image Captioning
+    Visual Question Answering
+    Vision-Language Models
+    Multimodal LLMs
+
+
+========================================================
+62. NLP CAREER AREAS
+========================================================
+
+NLP Engineer
+ML Engineer
+AI Engineer
+LLM Engineer
+Research Engineer
+Data Scientist
+Machine Learning Scientist
+Conversational AI Engineer
+Speech AI Engineer
+Information Retrieval Engineer
+Search Engineer
+AI Agent Engineer
+
+
+========================================================
+63. NLP — 80/20
+========================================================
+
+Must Learn:
+
+    Tokenization
+    Text Cleaning
+    TF-IDF
+    Word Embeddings
+    Text Classification
+    Sentiment Analysis
+    NER
+    RNN/LSTM basics
+    Attention
+    Transformers
+    BERT
+    GPT/LLM
+    Hugging Face
+    Embeddings
+    Semantic Search
+    RAG
+    Fine-Tuning
+
+
+========================================================
+64. BEST ORDER FOR AI/ML STUDENT
+========================================================
+
+Python
+ ↓
+NumPy
+ ↓
+Pandas
+ ↓
+Matplotlib
+ ↓
+Statistics
+ ↓
+Probability
+ ↓
+Scikit-learn
+ ↓
+Machine Learning
+ ↓
+Deep Learning
+ ↓
+PyTorch / TensorFlow
+ ↓
+NLP Fundamentals
+ ↓
+Transformers
+ ↓
+Hugging Face
+ ↓
+LLMs
+ ↓
+Embeddings
+ ↓
+RAG
+ ↓
+Fine-Tuning
+ ↓
+AI Agents
 
