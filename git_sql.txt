@@ -1,0 +1,3555 @@
+========================================================
+             GIT + GITHUB — MASTER CHEAT SHEET
+========================================================
+
+1. GIT BASICS
+--------------------------------------------------------
+
+Git
+    Distributed Version Control System
+
+Main Uses:
+
+    Version Control
+    Code Management
+    Backup
+    Collaboration
+    Branching
+    Merging
+    History Tracking
+    Team Development
+
+
+========================================================
+2. GITHUB
+========================================================
+
+GitHub
+    Online platform for Git repositories.
+
+Main Uses:
+
+    Store Code
+    Share Projects
+    Collaboration
+    Pull Requests
+    Issues
+    Code Review
+    Open Source
+    Project Management
+    CI/CD
+
+
+========================================================
+3. GIT vs GITHUB
+========================================================
+
+Git:
+
+    Software / Version Control System
+    Runs locally
+    Tracks code changes
+
+
+GitHub:
+
+    Online hosting/collaboration platform
+    Hosts Git repositories
+    Provides collaboration tools
+
+
+========================================================
+4. GIT INSTALLATION
+========================================================
+
+Check Git:
+
+    git --version
+
+Configure username:
+
+    git config --global user.name "Your Name"
+
+Configure email:
+
+    git config --global user.email "you@example.com"
+
+View configuration:
+
+    git config --list
+
+
+========================================================
+5. BASIC GIT WORKFLOW
+========================================================
+
+Working Directory
+       ↓
+    git add
+       ↓
+Staging Area
+       ↓
+   git commit
+       ↓
+Local Repository
+       ↓
+   git push
+       ↓
+GitHub Repository
+
+
+========================================================
+6. CREATE REPOSITORY
+========================================================
+
+Create folder:
+
+    mkdir my-project
+
+Enter folder:
+
+    cd my-project
+
+Initialize Git:
+
+    git init
+
+
+========================================================
+7. GIT STATUS
+========================================================
+
+Check current state:
+
+    git status
+
+
+Shows:
+
+    Modified files
+    Untracked files
+    Staged files
+    Current branch
+
+
+========================================================
+8. GIT ADD
+========================================================
+
+Add one file:
+
+    git add main.py
+
+Add multiple:
+
+    git add file1.py file2.py
+
+Add everything:
+
+    git add .
+
+
+Purpose:
+
+    Move changes to staging area.
+
+
+========================================================
+9. GIT COMMIT
+========================================================
+
+Commit:
+
+    git commit -m "Initial commit"
+
+
+Good commit:
+
+    git commit -m "Add KNN model"
+
+Another:
+
+    git commit -m "Fix data preprocessing"
+
+
+========================================================
+10. GIT LOG
+========================================================
+
+View history:
+
+    git log
+
+Compact:
+
+    git log --oneline
+
+Graph:
+
+    git log --oneline --graph --all
+
+
+========================================================
+11. GIT DIFF
+========================================================
+
+View changes:
+
+    git diff
+
+Staged changes:
+
+    git diff --staged
+
+
+========================================================
+12. GIT INIT
+========================================================
+
+    git init
+
+Creates:
+
+    .git/
+
+
+.git contains Git repository metadata.
+
+Do NOT normally edit it manually.
+
+
+========================================================
+13. GIT CLONE
+========================================================
+
+Clone repository:
+
+    git clone REPOSITORY_URL
+
+Example:
+
+    git clone https://github.com/user/project.git
+
+
+========================================================
+14. REMOTE REPOSITORY
+========================================================
+
+View remotes:
+
+    git remote -v
+
+Add remote:
+
+    git remote add origin REPOSITORY_URL
+
+Change remote:
+
+    git remote set-url origin REPOSITORY_URL
+
+
+========================================================
+15. GIT PUSH
+========================================================
+
+First push:
+
+    git push -u origin main
+
+Later:
+
+    git push
+
+
+Purpose:
+
+    Local repository → GitHub
+
+
+========================================================
+16. GIT PULL
+========================================================
+
+    git pull
+
+Purpose:
+
+    GitHub → Local repository
+
+Usually:
+
+    fetch + merge/rebase
+
+
+========================================================
+17. GIT FETCH
+========================================================
+
+    git fetch
+
+Downloads remote changes
+without automatically merging them.
+
+
+========================================================
+18. GIT BRANCH
+========================================================
+
+List branches:
+
+    git branch
+
+Create branch:
+
+    git branch feature-login
+
+Switch:
+
+    git switch feature-login
+
+Create + switch:
+
+    git switch -c feature-login
+
+
+Older command:
+
+    git checkout -b feature-login
+
+
+========================================================
+19. DELETE BRANCH
+========================================================
+
+Local:
+
+    git branch -d feature-login
+
+Force:
+
+    git branch -D feature-login
+
+
+Remote:
+
+    git push origin --delete feature-login
+
+
+========================================================
+20. MERGE
+========================================================
+
+Switch to target branch:
+
+    git switch main
+
+Merge:
+
+    git merge feature-login
+
+
+Workflow:
+
+    main
+      ↓
+    create branch
+      ↓
+    work
+      ↓
+    commit
+      ↓
+    merge into main
+
+
+========================================================
+21. MERGE CONFLICT
+========================================================
+
+Occurs when Git cannot automatically
+combine changes.
+
+
+Workflow:
+
+    git status
+
+Resolve conflict manually.
+
+Then:
+
+    git add .
+
+    git commit
+
+
+========================================================
+22. REBASE
+========================================================
+
+    git rebase main
+
+Purpose:
+
+    Reapply commits on top of another base.
+
+
+Merge:
+
+    Creates merge history.
+
+
+Rebase:
+
+    Creates a more linear history.
+
+
+Important:
+
+    Avoid rebasing shared/public history
+    unless you understand the consequences.
+
+
+========================================================
+23. GIT RESET
+========================================================
+
+Soft:
+
+    git reset --soft HEAD~1
+
+Mixed:
+
+    git reset HEAD~1
+
+Hard:
+
+    git reset --hard HEAD~1
+
+
+IMPORTANT:
+
+    --hard can permanently discard
+    uncommitted changes.
+
+
+========================================================
+24. GIT RESTORE
+========================================================
+
+Restore working-file changes:
+
+    git restore file.py
+
+Unstage:
+
+    git restore --staged file.py
+
+
+========================================================
+25. GIT REVERT
+========================================================
+
+    git revert COMMIT_ID
+
+
+Creates a new commit that reverses
+an earlier commit.
+
+Useful for shared branches.
+
+
+========================================================
+26. GIT TAG
+========================================================
+
+Create:
+
+    git tag v1.0.0
+
+List:
+
+    git tag
+
+Push:
+
+    git push origin v1.0.0
+
+Push all tags:
+
+    git push origin --tags
+
+
+Used for:
+
+    Releases
+    Versions
+
+
+========================================================
+27. GIT STASH
+========================================================
+
+Temporarily save unfinished work:
+
+    git stash
+
+View:
+
+    git stash list
+
+Apply:
+
+    git stash apply
+
+Apply latest and remove stash:
+
+    git stash pop
+
+Delete:
+
+    git stash drop
+
+
+========================================================
+28. GITIGNORE
+========================================================
+
+File:
+
+    .gitignore
+
+
+Example:
+
+    __pycache__/
+    .venv/
+    *.pyc
+    .env
+    data/
+    models/
+    *.log
+
+
+Purpose:
+
+    Prevent unwanted files from being tracked.
+
+
+========================================================
+29. GIT SHOW
+========================================================
+
+    git show COMMIT_ID
+
+
+Shows details of a commit.
+
+
+========================================================
+30. GIT BLAME
+========================================================
+
+    git blame file.py
+
+
+Shows which commit/author changed
+each line.
+
+
+========================================================
+31. GIT DIFF BETWEEN COMMITS
+========================================================
+
+    git diff COMMIT1 COMMIT2
+
+
+Compare versions.
+
+
+========================================================
+32. GIT CHERRY-PICK
+========================================================
+
+    git cherry-pick COMMIT_ID
+
+
+Apply a specific commit
+to the current branch.
+
+
+========================================================
+33. GIT CLEAN
+========================================================
+
+Preview:
+
+    git clean -n
+
+Delete untracked files:
+
+    git clean -f
+
+
+Use carefully.
+
+
+========================================================
+34. GIT ALIASES
+========================================================
+
+Create shortcut:
+
+    git config --global alias.st status
+
+Then:
+
+    git st
+
+
+Example:
+
+    git config --global alias.co checkout
+    git config --global alias.br branch
+    git config --global alias.cm commit
+
+
+========================================================
+35. GIT CONFIG
+========================================================
+
+View:
+
+    git config --list
+
+Global:
+
+    git config --global ...
+
+
+Local repository:
+
+    git config ...
+
+
+Unset:
+
+    git config --global --unset KEY
+
+
+========================================================
+36. GITHUB REPOSITORY
+========================================================
+
+Repository can contain:
+
+    Source Code
+    README
+    Documentation
+    Tests
+    Configuration
+    Issues
+    Workflows
+    Releases
+
+
+========================================================
+37. README.md
+========================================================
+
+Common structure:
+
+    # Project Name
+
+    ## Description
+
+    ## Features
+
+    ## Installation
+
+    ## Usage
+
+    ## Technologies
+
+    ## Project Structure
+
+    ## Results
+
+    ## Future Work
+
+    ## License
+
+
+========================================================
+38. MARKDOWN
+========================================================
+
+GitHub commonly uses:
+
+    README.md
+
+
+Basic Markdown:
+
+    # Heading
+
+    ## Subheading
+
+    **Bold**
+
+    *Italic*
+
+    `code`
+
+    ```python
+    print("Hello")
+    ```
+
+    - List
+
+    [Link](URL)
+
+
+========================================================
+39. GITHUB PROFILE
+========================================================
+
+Useful profile elements:
+
+    Profile README
+    Repositories
+    Pinned Projects
+    Contributions
+    Skills
+    Certifications
+    Projects
+
+
+For ML career:
+
+    Python Projects
+    ML Projects
+    Data Science Projects
+    Deep Learning Projects
+    NLP Projects
+    LLM Projects
+
+
+========================================================
+40. GITHUB FOR CSE STUDENT
+========================================================
+
+Upload:
+
+    C Projects
+    C++ Projects
+    Python Projects
+    DSA
+    Algorithms
+    SQL
+    ML
+    DL
+    NLP
+    LLM
+    Robotics
+    IoT
+
+
+========================================================
+41. PULL REQUEST
+========================================================
+
+Typical workflow:
+
+    Fork / Clone
+        ↓
+    Create Branch
+        ↓
+    Modify Code
+        ↓
+    Commit
+        ↓
+    Push
+        ↓
+    Pull Request
+        ↓
+    Code Review
+        ↓
+    Merge
+
+
+========================================================
+42. GITHUB ISSUES
+========================================================
+
+Used for:
+
+    Bug Reports
+    Feature Requests
+    Tasks
+    Improvements
+    Discussions
+
+
+Example:
+
+    Issue #12
+    "Fix model preprocessing bug"
+
+
+========================================================
+43. GITHUB FORK
+========================================================
+
+Fork:
+
+    Create your own GitHub copy
+    of another repository.
+
+
+Useful for:
+
+    Open Source
+    Experimentation
+    Pull Requests
+
+
+========================================================
+44. GITHUB ACTIONS
+========================================================
+
+GitHub Actions = CI/CD automation.
+
+
+Can automate:
+
+    Testing
+    Building
+    Linting
+    Deployment
+    Releases
+
+
+Basic workflow:
+
+    Code Push
+       ↓
+    GitHub Actions
+       ↓
+    Tests
+       ↓
+    Build
+       ↓
+    Deploy
+
+
+========================================================
+45. WORKFLOW FILE
+========================================================
+
+Location:
+
+    .github/workflows/
+
+
+Example:
+
+    ci.yml
+
+
+Typical steps:
+
+    Checkout
+    Setup Python
+    Install dependencies
+    Run tests
+
+
+========================================================
+46. GITHUB RELEASES
+========================================================
+
+Used to publish versions:
+
+    v1.0.0
+    v1.1.0
+    v2.0.0
+
+
+Can include:
+
+    Release Notes
+    Source Code
+    Binary Files
+
+
+========================================================
+47. GITHUB SECURITY
+========================================================
+
+NEVER upload:
+
+    Passwords
+    API Keys
+    Tokens
+    Private Keys
+    Database Passwords
+    .env secrets
+
+
+Use:
+
+    .gitignore
+
+For CI/CD:
+
+    GitHub Secrets
+
+
+========================================================
+48. SSH
+========================================================
+
+SSH allows authenticated GitHub access.
+
+Common setup:
+
+    ssh-keygen -t ed25519 -C "you@example.com"
+
+Test:
+
+    ssh -T git@github.com
+
+
+SSH remote:
+
+    git@github.com:user/project.git
+
+
+========================================================
+49. HTTPS vs SSH
+========================================================
+
+HTTPS:
+
+    https://github.com/user/project.git
+
+
+SSH:
+
+    git@github.com:user/project.git
+
+
+Both can be used to interact
+with GitHub repositories.
+
+
+========================================================
+50. GIT WORKTREE
+========================================================
+
+Allows multiple working trees
+from one repository.
+
+
+Command:
+
+    git worktree add ../feature feature
+
+
+Useful for:
+
+    Parallel development
+    Multiple branches
+
+
+========================================================
+51. GIT SUBMODULE
+========================================================
+
+Include another Git repository
+inside a repository.
+
+Add:
+
+    git submodule add REPOSITORY_URL
+
+
+Update:
+
+    git submodule update --init --recursive
+
+
+Useful for:
+
+    External dependencies
+    Shared repositories
+
+
+========================================================
+52. GIT LFS
+========================================================
+
+Git Large File Storage
+
+Useful for:
+
+    Large datasets
+    Model files
+    Images
+    Videos
+    Large binaries
+
+
+Commands:
+
+    git lfs install
+
+    git lfs track "*.bin"
+
+    git add .
+
+    git commit -m "Track large files"
+
+
+========================================================
+53. GIT HOOKS
+========================================================
+
+Hooks run scripts at Git events.
+
+Examples:
+
+    pre-commit
+    commit-msg
+    pre-push
+    post-merge
+
+
+Uses:
+
+    Formatting
+    Testing
+    Validation
+
+
+========================================================
+54. GIT TAGGING / VERSIONING
+========================================================
+
+Semantic Versioning:
+
+    MAJOR.MINOR.PATCH
+
+
+Example:
+
+    1.0.0
+    1.1.0
+    1.1.1
+    2.0.0
+
+
+========================================================
+55. GIT BEST PRACTICES
+========================================================
+
+1. Commit frequently.
+
+2. Use meaningful commit messages.
+
+3. Create branches for features.
+
+4. Keep commits focused.
+
+5. Pull before starting work.
+
+6. Never commit secrets.
+
+7. Use .gitignore.
+
+8. Review changes before commit.
+
+9. Write a good README.
+
+10. Keep repository organized.
+
+
+========================================================
+56. GOOD COMMIT MESSAGES
+========================================================
+
+Good:
+
+    Add KNN classifier
+    Fix data preprocessing
+    Add CNN training pipeline
+    Update README
+    Fix API validation
+
+
+Bad:
+
+    update
+    changes
+    final
+    test
+    abc
+
+
+========================================================
+57. COMMON GIT COMMANDS
+========================================================
+
+git init
+git clone
+git status
+git add
+git commit
+git log
+git diff
+git branch
+git switch
+git merge
+git rebase
+git remote
+git fetch
+git pull
+git push
+git stash
+git reset
+git restore
+git revert
+git tag
+git show
+git blame
+git cherry-pick
+git clean
+
+
+========================================================
+58. COMPLETE DAILY WORKFLOW
+========================================================
+
+git status
+
+git pull
+
+git switch -c feature-name
+
+# Write code
+
+git status
+
+git diff
+
+git add .
+
+git commit -m "Add feature"
+
+git push -u origin feature-name
+
+Create Pull Request
+
+Code Review
+
+Merge
+
+
+========================================================
+59. ML PROJECT GIT WORKFLOW
+========================================================
+
+ML Project
+    ↓
+Create Git Repository
+    ↓
+.gitignore
+    ↓
+README.md
+    ↓
+Python Environment
+    ↓
+Data Processing
+    ↓
+EDA
+    ↓
+Feature Engineering
+    ↓
+Model Training
+    ↓
+Evaluation
+    ↓
+Commit
+    ↓
+GitHub
+    ↓
+CI/CD
+    ↓
+Deployment
+
+
+========================================================
+60. ML .gitignore EXAMPLE
+========================================================
+
+__pycache__/
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+
+data/
+models/
+logs/
+
+*.pyc
+*.pkl
+*.h5
+
+.DS_Store
+
+
+NOTE:
+
+Large datasets/models should not simply be
+committed to normal Git history.
+
+
+========================================================
+61. GITHUB PROJECT STRUCTURE
+========================================================
+
+my-ml-project/
+│
+├── README.md
+├── LICENSE
+├── .gitignore
+├── requirements.txt
+│
+├── src/
+│   ├── data.py
+│   ├── train.py
+│   └── predict.py
+│
+├── notebooks/
+│   └── experiment.ipynb
+│
+├── tests/
+│   └── test_model.py
+│
+├── configs/
+│   └── config.yaml
+│
+└── .github/
+    └── workflows/
+        └── ci.yml
+
+
+========================================================
+62. GITHUB + DATA SCIENCE
+========================================================
+
+Project:
+
+    Customer Churn Prediction
+
+Repository:
+
+    customer-churn-prediction
+
+
+Include:
+
+    README
+    Dataset description
+    EDA
+    Feature engineering
+    Model
+    Evaluation
+    Requirements
+    Instructions
+
+
+========================================================
+63. GITHUB + DEEP LEARNING
+========================================================
+
+Project:
+
+    Image Classification
+
+Repository:
+
+    image-classification-cnn
+
+
+Include:
+
+    Dataset information
+    Training code
+    Model architecture
+    Results
+    Accuracy
+    Confusion Matrix
+    Sample predictions
+
+
+========================================================
+64. GITHUB + NLP
+========================================================
+
+Project:
+
+    Sentiment Analysis
+
+Repository:
+
+    sentiment-analysis
+
+
+Include:
+
+    Data preprocessing
+    Tokenization
+    TF-IDF / Embeddings
+    Model
+    Evaluation
+    Examples
+
+
+========================================================
+65. GITHUB + LLM
+========================================================
+
+Project:
+
+    PDF RAG Chatbot
+
+
+Repository:
+
+    pdf-rag-chatbot
+
+
+Include:
+
+    Document loading
+    Chunking
+    Embeddings
+    Vector DB
+    Retrieval
+    LLM
+    Prompt
+    API
+    README
+
+
+========================================================
+66. GITHUB + ROBOTICS
+========================================================
+
+Repository:
+
+    autonomous-robot
+
+
+Include:
+
+    Arduino/C++
+    ROS/ROS2
+    Sensors
+    Control
+    Navigation
+    ML model
+    Documentation
+
+
+========================================================
+67. ACTIVITIES — BEGINNER
+========================================================
+
+1. Install Git
+2. Configure Git
+3. Create repository
+4. git init
+5. git add
+6. git commit
+7. git log
+8. git status
+9. Create GitHub repository
+10. Push project
+
+
+========================================================
+68. ACTIVITIES — INTERMEDIATE
+========================================================
+
+1. Branching
+2. Merging
+3. Pull Requests
+4. Issues
+5. Fork
+6. Clone
+7. Remote repositories
+8. Merge conflicts
+9. Stash
+10. Rebase
+11. Tags
+12. Releases
+
+
+========================================================
+69. ACTIVITIES — ADVANCED
+========================================================
+
+1. GitHub Actions
+2. CI/CD
+3. Git Hooks
+4. Git LFS
+5. Submodules
+6. Advanced branching
+7. Release automation
+8. Automated testing
+9. Docker + GitHub
+10. ML deployment with GitHub Actions
+
+
+========================================================
+70. PROJECTS
+========================================================
+
+BEGINNER:
+
+    1. C Project Repository
+    2. C++ OOP Repository
+    3. Python Projects Repository
+    4. DSA Repository
+    5. SQL Practice Repository
+
+
+INTERMEDIATE:
+
+    6. Machine Learning Project
+    7. Data Science Project
+    8. Flask/FastAPI Project
+    9. CNN Project
+    10. NLP Project
+
+
+ADVANCED:
+
+    11. LLM Project
+    12. RAG Application
+    13. AI Agent
+    14. MLOps Project
+    15. CI/CD ML Pipeline
+    16. Cloud Deployment
+
+
+========================================================
+71. LEARNING ROADMAP
+========================================================
+
+LEVEL 1
+    Git Basics
+    Repository
+    Working Directory
+    Staging
+    Commit
+
+
+LEVEL 2
+    Branch
+    Switch
+    Merge
+    Conflict
+
+
+LEVEL 3
+    GitHub
+    Remote
+    Push
+    Pull
+    Clone
+    Fetch
+
+
+LEVEL 4
+    Pull Request
+    Fork
+    Issues
+    Code Review
+    Releases
+
+
+LEVEL 5
+    Rebase
+    Cherry-pick
+    Stash
+    Reset
+    Revert
+    Tags
+
+
+LEVEL 6
+    SSH
+    .gitignore
+    Git LFS
+    Submodules
+    Hooks
+
+
+LEVEL 7
+    GitHub Actions
+    CI/CD
+    Automated Testing
+    Deployment
+
+
+LEVEL 8
+    Git + ML
+    Git + DL
+    Git + NLP
+    Git + LLM
+    Git + MLOps
+
+
+========================================================
+72. GIT + GITHUB 80/20
+========================================================
+
+MUST LEARN:
+
+    git init
+    git clone
+    git status
+    git add
+    git commit
+    git log
+    git diff
+    git branch
+    git switch
+    git merge
+    git remote
+    git pull
+    git push
+    git fetch
+    .gitignore
+    README.md
+    GitHub Repository
+    Pull Request
+    Fork
+    Issues
+
+
+========================================================
+73. YOUR AI/ML ROADMAP
+========================================================
+
+Python
+   ↓
+NumPy
+   ↓
+Pandas
+   ↓
+Matplotlib
+   ↓
+Statistics
+   ↓
+Scikit-learn
+   ↓
+Machine Learning
+   ↓
+Git + GitHub
+   ↓
+Deep Learning
+   ↓
+PyTorch
+   ↓
+NLP
+   ↓
+Transformers
+   ↓
+LLM
+   ↓
+RAG
+   ↓
+Fine-Tuning
+   ↓
+AI Agents
+   ↓
+Docker
+   ↓
+FastAPI
+   ↓
+MLflow
+   ↓
+CI/CD
+   ↓
+MLOps
+   ↓
+Cloud
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+========================================================
+                 SQL — MASTER CHEAT SHEET
+========================================================
+
+1. SQL BASICS
+--------------------------------------------------------
+
+SQL = Structured Query Language
+
+Main Uses:
+
+    Create Database
+    Create Tables
+    Insert Data
+    Read Data
+    Update Data
+    Delete Data
+    Filter Data
+    Sort Data
+    Group Data
+    Join Tables
+    Analyze Data
+    Manage Transactions
+    Manage Users/Permissions
+
+
+========================================================
+2. SQL DATABASE TYPES
+========================================================
+
+Relational Databases:
+
+    MySQL
+    PostgreSQL
+    Oracle Database
+    Microsoft SQL Server
+    SQLite
+    MariaDB
+
+
+SQL is mainly used with
+relational databases.
+
+
+========================================================
+3. DATABASE CONCEPTS
+========================================================
+
+Database
+Table
+Row
+Column
+Record
+Field
+Primary Key
+Foreign Key
+Constraint
+Index
+View
+Schema
+Relationship
+
+
+Example:
+
+Database
+   ↓
+Table
+   ↓
+Rows + Columns
+
+
+========================================================
+4. SQL MAIN CATEGORIES
+========================================================
+
+DDL
+    Data Definition Language
+
+DML
+    Data Manipulation Language
+
+DQL
+    Data Query Language
+
+DCL
+    Data Control Language
+
+TCL
+    Transaction Control Language
+
+
+========================================================
+5. DDL
+========================================================
+
+CREATE
+ALTER
+DROP
+TRUNCATE
+RENAME
+
+
+Used to define/change database structure.
+
+
+========================================================
+6. DML
+========================================================
+
+INSERT
+UPDATE
+DELETE
+
+
+Used to modify data.
+
+
+========================================================
+7. DQL
+========================================================
+
+SELECT
+
+
+Used to retrieve data.
+
+
+========================================================
+8. DCL
+========================================================
+
+GRANT
+REVOKE
+
+
+Used for permissions/access control.
+
+
+========================================================
+9. TCL
+========================================================
+
+COMMIT
+ROLLBACK
+SAVEPOINT
+
+
+Used for transaction management.
+
+
+========================================================
+10. CREATE DATABASE
+========================================================
+
+CREATE DATABASE school;
+
+
+========================================================
+11. USE DATABASE
+========================================================
+
+USE school;
+
+
+Note:
+    Syntax differs by database system.
+
+
+========================================================
+12. CREATE TABLE
+========================================================
+
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    age INT,
+    department VARCHAR(50)
+);
+
+
+========================================================
+13. DATA TYPES
+========================================================
+
+Numeric:
+
+    INT
+    BIGINT
+    SMALLINT
+    DECIMAL
+    NUMERIC
+    FLOAT
+    REAL
+    DOUBLE
+
+
+Character:
+
+    CHAR
+    VARCHAR
+    TEXT
+
+
+Date/Time:
+
+    DATE
+    TIME
+    DATETIME
+    TIMESTAMP
+
+
+Boolean:
+
+    BOOLEAN
+
+
+Binary:
+
+    BINARY
+    VARBINARY
+    BLOB
+
+
+Other database-specific types:
+
+    JSON
+    XML
+    UUID
+    ARRAY
+    ENUM
+
+
+========================================================
+14. INSERT
+========================================================
+
+INSERT INTO students
+(id, name, age, department)
+VALUES
+(1, 'Rahim', 20, 'CSE');
+
+
+Multiple rows:
+
+INSERT INTO students
+(id, name, age, department)
+VALUES
+(2, 'Karim', 21, 'CSE'),
+(3, 'Hasan', 20, 'EEE');
+
+
+========================================================
+15. SELECT
+========================================================
+
+SELECT * FROM students;
+
+
+Specific columns:
+
+SELECT name, age
+FROM students;
+
+
+========================================================
+16. DISTINCT
+========================================================
+
+SELECT DISTINCT department
+FROM students;
+
+
+Removes duplicate results.
+
+
+========================================================
+17. WHERE
+========================================================
+
+SELECT *
+FROM students
+WHERE age > 20;
+
+
+Operators:
+
+    =
+    !=
+    <>
+    >
+    <
+    >=
+    <=
+
+
+========================================================
+18. AND
+========================================================
+
+SELECT *
+FROM students
+WHERE age > 18
+AND department = 'CSE';
+
+
+========================================================
+19. OR
+========================================================
+
+SELECT *
+FROM students
+WHERE department = 'CSE'
+OR department = 'EEE';
+
+
+========================================================
+20. NOT
+========================================================
+
+SELECT *
+FROM students
+WHERE NOT department = 'CSE';
+
+
+========================================================
+21. BETWEEN
+========================================================
+
+SELECT *
+FROM students
+WHERE age BETWEEN 18 AND 22;
+
+
+========================================================
+22. IN
+========================================================
+
+SELECT *
+FROM students
+WHERE department IN ('CSE', 'EEE');
+
+
+========================================================
+23. NOT IN
+========================================================
+
+SELECT *
+FROM students
+WHERE department NOT IN ('CSE', 'EEE');
+
+
+========================================================
+24. LIKE
+========================================================
+
+SELECT *
+FROM students
+WHERE name LIKE 'A%';
+
+
+Patterns:
+
+    %   → any number of characters
+    _   → one character
+
+
+Examples:
+
+'A%'
+'%a'
+'_a%'
+'%rah%'
+
+
+========================================================
+25. IS NULL
+========================================================
+
+SELECT *
+FROM students
+WHERE age IS NULL;
+
+
+NOT NULL:
+
+SELECT *
+FROM students
+WHERE age IS NOT NULL;
+
+
+========================================================
+26. ORDER BY
+========================================================
+
+Ascending:
+
+SELECT *
+FROM students
+ORDER BY age ASC;
+
+
+Descending:
+
+SELECT *
+FROM students
+ORDER BY age DESC;
+
+
+========================================================
+27. LIMIT / FETCH
+========================================================
+
+Example:
+
+SELECT *
+FROM students
+LIMIT 5;
+
+
+Standard SQL/database-specific alternatives
+may use FETCH FIRST / TOP.
+
+
+========================================================
+28. ALIAS
+========================================================
+
+SELECT
+    name AS student_name,
+    age AS student_age
+FROM students;
+
+
+Table alias:
+
+SELECT s.name
+FROM students AS s;
+
+
+========================================================
+29. UPDATE
+========================================================
+
+UPDATE students
+SET age = 21
+WHERE id = 1;
+
+
+IMPORTANT:
+
+Always use an appropriate WHERE condition
+unless you intentionally want to update every row.
+
+
+========================================================
+30. DELETE
+========================================================
+
+DELETE FROM students
+WHERE id = 1;
+
+
+Without WHERE:
+
+DELETE FROM students;
+
+
+Deletes all rows.
+
+
+========================================================
+31. TRUNCATE
+========================================================
+
+TRUNCATE TABLE students;
+
+
+Removes table data while retaining
+the table structure.
+
+Exact transactional behavior depends
+on the database system.
+
+
+========================================================
+32. DROP
+========================================================
+
+DROP TABLE students;
+
+
+Removes the table itself.
+
+
+========================================================
+33. ALTER TABLE
+========================================================
+
+Add column:
+
+ALTER TABLE students
+ADD email VARCHAR(100);
+
+
+Modify/change column:
+
+    Syntax varies by database.
+
+
+Drop column:
+
+ALTER TABLE students
+DROP COLUMN email;
+
+
+========================================================
+34. CONSTRAINTS
+========================================================
+
+PRIMARY KEY
+FOREIGN KEY
+UNIQUE
+NOT NULL
+CHECK
+DEFAULT
+
+
+========================================================
+35. PRIMARY KEY
+========================================================
+
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(100)
+);
+
+
+Properties:
+
+    Unique
+    Identifies each row
+    Cannot be NULL
+
+
+========================================================
+36. FOREIGN KEY
+========================================================
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    student_id INT,
+    FOREIGN KEY (student_id)
+        REFERENCES students(id)
+);
+
+
+Used to create relationships
+between tables.
+
+
+========================================================
+37. UNIQUE
+========================================================
+
+CREATE TABLE users (
+    id INT PRIMARY KEY,
+    email VARCHAR(100) UNIQUE
+);
+
+
+Prevents duplicate values
+under the constraint.
+
+
+========================================================
+38. NOT NULL
+========================================================
+
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL
+);
+
+
+========================================================
+39. DEFAULT
+========================================================
+
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    country VARCHAR(50)
+        DEFAULT 'Bangladesh'
+);
+
+
+========================================================
+40. CHECK
+========================================================
+
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    age INT CHECK (age >= 18)
+);
+
+
+========================================================
+41. SQL FUNCTIONS
+========================================================
+
+Aggregate Functions:
+
+    COUNT()
+    SUM()
+    AVG()
+    MIN()
+    MAX()
+
+
+String Functions:
+
+    CONCAT()
+    LOWER()
+    UPPER()
+    LENGTH()
+    TRIM()
+    SUBSTRING()
+    REPLACE()
+
+
+Numeric Functions:
+
+    ABS()
+    ROUND()
+    CEILING()
+    FLOOR()
+    POWER()
+
+
+Date/Time Functions:
+
+    CURRENT_DATE
+    CURRENT_TIME
+    CURRENT_TIMESTAMP
+
+
+Exact function names vary between DBMSs.
+
+
+========================================================
+42. COUNT
+========================================================
+
+SELECT COUNT(*)
+FROM students;
+
+
+========================================================
+43. SUM
+========================================================
+
+SELECT SUM(salary)
+FROM employees;
+
+
+========================================================
+44. AVG
+========================================================
+
+SELECT AVG(salary)
+FROM employees;
+
+
+========================================================
+45. MIN / MAX
+========================================================
+
+SELECT MIN(salary)
+FROM employees;
+
+SELECT MAX(salary)
+FROM employees;
+
+
+========================================================
+46. GROUP BY
+========================================================
+
+SELECT department, COUNT(*)
+FROM students
+GROUP BY department;
+
+
+Used for grouped analysis.
+
+
+========================================================
+47. HAVING
+========================================================
+
+SELECT department, COUNT(*)
+FROM students
+GROUP BY department
+HAVING COUNT(*) > 5;
+
+
+WHERE:
+    filters rows before grouping.
+
+HAVING:
+    filters groups after grouping.
+
+
+========================================================
+48. CASE
+========================================================
+
+SELECT
+    name,
+    age,
+    CASE
+        WHEN age >= 18 THEN 'Adult'
+        ELSE 'Minor'
+    END AS category
+FROM students;
+
+
+========================================================
+49. JOINS
+========================================================
+
+Main types:
+
+    INNER JOIN
+    LEFT JOIN
+    RIGHT JOIN
+    FULL OUTER JOIN
+    CROSS JOIN
+
+
+Some DBMSs do not support every join
+type identically.
+
+
+========================================================
+50. INNER JOIN
+========================================================
+
+SELECT
+    s.name,
+    o.order_id
+FROM students s
+INNER JOIN orders o
+    ON s.id = o.student_id;
+
+
+Returns matching rows.
+
+
+========================================================
+51. LEFT JOIN
+========================================================
+
+SELECT
+    s.name,
+    o.order_id
+FROM students s
+LEFT JOIN orders o
+    ON s.id = o.student_id;
+
+
+Returns all rows from left table
+and matching rows from right table.
+
+
+========================================================
+52. RIGHT JOIN
+========================================================
+
+SELECT
+    s.name,
+    o.order_id
+FROM students s
+RIGHT JOIN orders o
+    ON s.id = o.student_id;
+
+
+Returns all rows from right table
+and matching rows from left table.
+
+
+========================================================
+53. FULL OUTER JOIN
+========================================================
+
+SELECT *
+FROM students s
+FULL OUTER JOIN orders o
+ON s.id = o.student_id;
+
+
+Returns matching + nonmatching rows
+from both sides.
+
+Support varies by DBMS.
+
+
+========================================================
+54. CROSS JOIN
+========================================================
+
+SELECT *
+FROM students
+CROSS JOIN courses;
+
+
+Produces Cartesian product.
+
+
+========================================================
+55. SELF JOIN
+========================================================
+
+A table joins with itself.
+
+Example:
+
+SELECT
+    e.name AS employee,
+    m.name AS manager
+FROM employees e
+JOIN employees m
+ON e.manager_id = m.id;
+
+
+========================================================
+56. SUBQUERY
+========================================================
+
+SELECT *
+FROM employees
+WHERE salary > (
+    SELECT AVG(salary)
+    FROM employees
+);
+
+
+Query inside another query.
+
+
+========================================================
+57. CORRELATED SUBQUERY
+========================================================
+
+A subquery references the
+outer query.
+
+
+Example concept:
+
+SELECT e1.name
+FROM employees e1
+WHERE e1.salary >
+(
+    SELECT AVG(e2.salary)
+    FROM employees e2
+    WHERE e2.department = e1.department
+);
+
+
+========================================================
+58. CTE
+========================================================
+
+CTE = Common Table Expression
+
+
+WITH high_salary AS (
+    SELECT *
+    FROM employees
+    WHERE salary > 50000
+)
+SELECT *
+FROM high_salary;
+
+
+========================================================
+59. RECURSIVE CTE
+========================================================
+
+WITH RECURSIVE hierarchy AS (
+    ...
+)
+SELECT *
+FROM hierarchy;
+
+
+Useful for:
+
+    Hierarchies
+    Trees
+    Graph-like relationships
+
+
+Syntax varies somewhat by DBMS.
+
+
+========================================================
+60. SET OPERATIONS
+========================================================
+
+UNION
+UNION ALL
+INTERSECT
+EXCEPT
+
+
+Example:
+
+SELECT name FROM students
+UNION
+SELECT name FROM teachers;
+
+
+========================================================
+61. UNION vs UNION ALL
+========================================================
+
+UNION:
+
+    Removes duplicates.
+
+UNION ALL:
+
+    Keeps duplicates
+    Usually faster.
+
+
+========================================================
+62. WINDOW FUNCTIONS
+========================================================
+
+Important:
+
+    ROW_NUMBER()
+    RANK()
+    DENSE_RANK()
+    NTILE()
+    LAG()
+    LEAD()
+    FIRST_VALUE()
+    LAST_VALUE()
+
+
+Example:
+
+SELECT
+    name,
+    salary,
+    RANK() OVER (
+        ORDER BY salary DESC
+    ) AS rank
+FROM employees;
+
+
+========================================================
+63. PARTITION BY
+========================================================
+
+SELECT
+    name,
+    department,
+    salary,
+    RANK() OVER (
+        PARTITION BY department
+        ORDER BY salary DESC
+    ) AS dept_rank
+FROM employees;
+
+
+Ranks employees inside each department.
+
+
+========================================================
+64. SQL ORDER OF QUERY PROCESSING
+========================================================
+
+Conceptually:
+
+    FROM
+      ↓
+    JOIN
+      ↓
+    WHERE
+      ↓
+    GROUP BY
+      ↓
+    HAVING
+      ↓
+    SELECT
+      ↓
+    DISTINCT
+      ↓
+    ORDER BY
+      ↓
+    LIMIT/FETCH
+
+
+Actual optimizer execution can differ.
+
+
+========================================================
+65. INDEX
+========================================================
+
+Index improves lookup/query performance
+for suitable workloads.
+
+Example:
+
+CREATE INDEX idx_student_name
+ON students(name);
+
+
+Types/concepts:
+
+    Single-column Index
+    Composite Index
+    Unique Index
+    B-tree
+    Hash
+    Full-text
+    Partial/Filtered Index
+
+
+Exact index types depend on DBMS.
+
+
+========================================================
+66. COMPOSITE INDEX
+========================================================
+
+CREATE INDEX idx_student
+ON students(department, age);
+
+
+Multiple columns.
+
+
+========================================================
+67. VIEW
+========================================================
+
+CREATE VIEW cse_students AS
+SELECT *
+FROM students
+WHERE department = 'CSE';
+
+
+Use:
+
+SELECT *
+FROM cse_students;
+
+
+View:
+
+    Virtual/query-defined table-like object.
+
+
+========================================================
+68. MATERIALIZED VIEW
+========================================================
+
+Stores query results physically
+and can be refreshed.
+
+Useful for:
+
+    Expensive analytical queries
+    Reporting
+
+
+Support varies by DBMS.
+
+
+========================================================
+69. TRANSACTION
+========================================================
+
+Transaction:
+
+    Group of database operations
+    treated as one logical unit.
+
+
+Example:
+
+BEGIN;
+
+UPDATE accounts
+SET balance = balance - 100
+WHERE id = 1;
+
+UPDATE accounts
+SET balance = balance + 100
+WHERE id = 2;
+
+COMMIT;
+
+
+========================================================
+70. ACID
+========================================================
+
+A = Atomicity
+C = Consistency
+I = Isolation
+D = Durability
+
+
+Important concept in transactions.
+
+
+========================================================
+71. COMMIT
+========================================================
+
+COMMIT;
+
+
+Makes transaction changes permanent.
+
+
+========================================================
+72. ROLLBACK
+========================================================
+
+ROLLBACK;
+
+
+Undo uncommitted transaction changes.
+
+
+========================================================
+73. SAVEPOINT
+========================================================
+
+SAVEPOINT point1;
+
+ROLLBACK TO point1;
+
+
+Allows partial rollback within a transaction.
+
+
+========================================================
+74. NORMALIZATION
+========================================================
+
+Purpose:
+
+    Reduce redundancy
+    Improve data integrity
+
+
+Forms:
+
+    1NF
+    2NF
+    3NF
+    BCNF
+    4NF
+    5NF
+
+
+========================================================
+75. 1NF
+========================================================
+
+First Normal Form:
+
+    Atomic values
+    No repeating groups
+
+
+========================================================
+76. 2NF
+========================================================
+
+2NF:
+
+    1NF
+    +
+    No partial dependency on
+    part of a composite key.
+
+
+========================================================
+77. 3NF
+========================================================
+
+3NF:
+
+    2NF
+    +
+    No problematic transitive dependency.
+
+
+========================================================
+78. DENORMALIZATION
+========================================================
+
+Purpose:
+
+    Sometimes improve read performance
+    by intentionally introducing redundancy.
+
+
+Common in:
+
+    Analytics
+    Data Warehousing
+
+
+========================================================
+79. RELATIONSHIPS
+========================================================
+
+One-to-One
+One-to-Many
+Many-to-Many
+
+
+Many-to-Many usually uses:
+
+    Junction / Associative Table
+
+
+========================================================
+80. ER MODEL
+========================================================
+
+ER = Entity Relationship
+
+
+Components:
+
+    Entity
+    Attribute
+    Relationship
+
+
+Example:
+
+Student
+   |
+   | enrolls
+   |
+Course
+
+
+========================================================
+81. SCHEMA
+========================================================
+
+Schema describes database organization.
+
+Includes concepts such as:
+
+    Tables
+    Columns
+    Constraints
+    Views
+    Indexes
+    Relationships
+
+
+========================================================
+82. SQL SECURITY
+========================================================
+
+Important:
+
+    Users
+    Roles
+    Permissions
+    GRANT
+    REVOKE
+
+
+NEVER store passwords as plain text.
+
+
+========================================================
+83. SQL INJECTION
+========================================================
+
+Security vulnerability caused by
+unsafe construction of SQL queries.
+
+
+Bad idea:
+
+    Building SQL by directly concatenating
+    untrusted user input.
+
+
+Protection:
+
+    Parameterized Queries
+    Prepared Statements
+    Input Validation
+    Least Privilege
+
+
+========================================================
+84. STORED PROCEDURE
+========================================================
+
+Database-side reusable procedure.
+
+Concept:
+
+    CREATE PROCEDURE ...
+
+
+Support and syntax vary by DBMS.
+
+
+========================================================
+85. FUNCTION
+========================================================
+
+Database function can encapsulate
+reusable logic.
+
+Syntax/features vary by DBMS.
+
+
+========================================================
+86. TRIGGER
+========================================================
+
+Automatically executes when certain
+database events occur.
+
+Examples:
+
+    INSERT
+    UPDATE
+    DELETE
+
+
+Concept:
+
+    Event
+      ↓
+    Trigger
+      ↓
+    Action
+
+
+========================================================
+87. CURSOR
+========================================================
+
+Cursor processes query results
+row by row.
+
+Usually avoid when set-based SQL
+can solve the problem more efficiently.
+
+
+========================================================
+88. TEMPORARY TABLE
+========================================================
+
+Temporary table stores intermediate data.
+
+Example:
+
+CREATE TEMPORARY TABLE temp_students (
+    id INT,
+    name VARCHAR(100)
+);
+
+
+Syntax varies by DBMS.
+
+
+========================================================
+89. JSON IN SQL
+========================================================
+
+Modern relational databases may support
+JSON columns and JSON operations.
+
+Uses:
+
+    Semi-structured data
+    API data
+    Event data
+
+
+Exact syntax differs between:
+
+    PostgreSQL
+    MySQL
+    SQL Server
+    Oracle
+
+
+========================================================
+90. FULL-TEXT SEARCH
+========================================================
+
+Used for text searching.
+
+Useful for:
+
+    Search Engines
+    Articles
+    Documents
+    Product Search
+
+
+========================================================
+91. SQL FOR DATA ANALYSIS
+========================================================
+
+Important:
+
+    SELECT
+    WHERE
+    GROUP BY
+    HAVING
+    ORDER BY
+    JOIN
+    CASE
+    Aggregate Functions
+    CTE
+    Window Functions
+    Subqueries
+
+
+========================================================
+92. SQL FOR DATA SCIENCE
+========================================================
+
+Workflow:
+
+Database
+   ↓
+SQL Query
+   ↓
+Data Extraction
+   ↓
+Pandas
+   ↓
+EDA
+   ↓
+Feature Engineering
+   ↓
+Machine Learning
+
+
+Important:
+
+    SELECT
+    JOIN
+    GROUP BY
+    Window Functions
+    CTE
+    CASE
+
+
+========================================================
+93. SQL + PYTHON
+========================================================
+
+Python can connect to databases.
+
+Common tools:
+
+    sqlite3
+    SQLAlchemy
+    psycopg
+    mysql-connector-python
+    pandas
+
+
+Example:
+
+import pandas as pd
+
+df = pd.read_sql(
+    "SELECT * FROM students",
+    connection
+)
+
+
+========================================================
+94. SQL + PANDAS
+========================================================
+
+Database
+    ↓
+SQL
+    ↓
+DataFrame
+
+
+Pandas:
+
+    read_sql()
+    to_sql()
+
+
+========================================================
+95. SQL + MACHINE LEARNING
+========================================================
+
+Database
+    ↓
+SQL
+    ↓
+Extract Dataset
+    ↓
+Pandas
+    ↓
+Preprocessing
+    ↓
+Scikit-learn
+    ↓
+Model
+
+
+========================================================
+96. SQL + DATA ENGINEERING
+========================================================
+
+SQL
+ ↓
+ETL / ELT
+ ↓
+Data Warehouse
+ ↓
+Data Lake / Lakehouse
+ ↓
+Analytics
+
+
+Topics:
+
+    ETL
+    ELT
+    Data Warehouse
+    Data Modeling
+    Batch Processing
+    Streaming
+
+
+========================================================
+97. SQL + DATA WAREHOUSE
+========================================================
+
+Concepts:
+
+    Fact Table
+    Dimension Table
+    Star Schema
+    Snowflake Schema
+    OLTP
+    OLAP
+
+
+========================================================
+98. OLTP
+========================================================
+
+OLTP =
+Online Transaction Processing
+
+
+Used for:
+
+    Banking
+    E-commerce
+    Applications
+    Transactions
+
+
+Focus:
+
+    Fast transactional operations.
+
+
+========================================================
+99. OLAP
+========================================================
+
+OLAP =
+Online Analytical Processing
+
+
+Used for:
+
+    Business Intelligence
+    Reporting
+    Analytics
+    Data Warehousing
+
+
+========================================================
+100. SQL PROJECTS
+========================================================
+
+BEGINNER:
+
+    1. Student Database
+    2. Library Database
+    3. Employee Database
+    4. Hospital Database
+    5. School Management Database
+
+
+INTERMEDIATE:
+
+    6. E-commerce Database
+    7. Banking Database
+    8. Hotel Management
+    9. Inventory System
+    10. Sales Analysis
+
+
+ADVANCED:
+
+    11. Data Warehouse
+    12. ETL Pipeline
+    13. Customer Analytics
+    14. Fraud Analysis
+    15. Recommendation Data Pipeline
+    16. ML Data Pipeline
+    17. BI Analytics System
+
+
+========================================================
+101. SQL ACTIVITIES
+========================================================
+
+BEGINNER:
+
+    Create database
+    Create tables
+    Insert rows
+    SELECT
+    WHERE
+    ORDER BY
+    UPDATE
+    DELETE
+
+
+INTERMEDIATE:
+
+    GROUP BY
+    HAVING
+    JOIN
+    Subquery
+    CASE
+    CTE
+    Views
+
+
+ADVANCED:
+
+    Window Functions
+    Query Optimization
+    Indexing
+    Transactions
+    Normalization
+    Stored Procedures
+    Triggers
+    Execution Plans
+    Data Warehousing
+
+
+========================================================
+102. SQL PROBLEM SOLVING
+========================================================
+
+Practice:
+
+    SELECT problems
+    Filtering problems
+    Aggregation problems
+    JOIN problems
+    Subquery problems
+    CTE problems
+    Window Function problems
+    Ranking problems
+    Date problems
+    String problems
+    Business Analytics problems
+
+
+========================================================
+103. IMPORTANT SQL INTERVIEW TOPICS
+========================================================
+
+    Primary Key
+    Foreign Key
+    UNIQUE
+    NULL
+    JOIN
+    GROUP BY
+    WHERE vs HAVING
+    DELETE vs TRUNCATE vs DROP
+    UNION vs UNION ALL
+    Subquery
+    CTE
+    Window Function
+    Index
+    View
+    Normalization
+    ACID
+    Transactions
+    SQL Injection
+    Query Optimization
+
+
+========================================================
+104. SQL LEARNING ROADMAP
+========================================================
+
+LEVEL 1 — BASIC
+
+    Database
+    Table
+    Row
+    Column
+    Data Types
+
+    CREATE
+    INSERT
+    SELECT
+    UPDATE
+    DELETE
+
+
+LEVEL 2 — FILTERING
+
+    WHERE
+    AND
+    OR
+    NOT
+    IN
+    BETWEEN
+    LIKE
+    NULL
+
+
+LEVEL 3 — ANALYSIS
+
+    ORDER BY
+    DISTINCT
+    COUNT
+    SUM
+    AVG
+    MIN
+    MAX
+    GROUP BY
+    HAVING
+    CASE
+
+
+LEVEL 4 — RELATIONSHIPS
+
+    Primary Key
+    Foreign Key
+    INNER JOIN
+    LEFT JOIN
+    RIGHT JOIN
+    FULL JOIN
+    SELF JOIN
+
+
+LEVEL 5 — ADVANCED QUERIES
+
+    Subquery
+    Correlated Subquery
+    CTE
+    Recursive CTE
+    UNION
+    INTERSECT
+    EXCEPT
+
+
+LEVEL 6 — ADVANCED SQL
+
+    Window Functions
+    ROW_NUMBER
+    RANK
+    DENSE_RANK
+    LAG
+    LEAD
+
+
+LEVEL 7 — DATABASE
+
+    Index
+    View
+    Transactions
+    ACID
+    Normalization
+    Constraints
+    Security
+
+
+LEVEL 8 — PROFESSIONAL
+
+    Query Optimization
+    Execution Plans
+    Stored Procedures
+    Functions
+    Triggers
+    Permissions
+    Backup/Recovery
+
+
+LEVEL 9 — DATA
+
+    ETL
+    Data Warehouse
+    OLTP
+    OLAP
+    Star Schema
+    Snowflake Schema
+
+
+LEVEL 10 — DATA SCIENCE
+
+    SQL
+      ↓
+    Pandas
+      ↓
+    Statistics
+      ↓
+    Machine Learning
+
+
+========================================================
+105. SQL — 80/20
+========================================================
+
+MUST LEARN:
+
+    SELECT
+    FROM
+    WHERE
+    DISTINCT
+    ORDER BY
+    LIMIT/FETCH
+    INSERT
+    UPDATE
+    DELETE
+
+    AND
+    OR
+    IN
+    BETWEEN
+    LIKE
+    IS NULL
+
+    COUNT
+    SUM
+    AVG
+    MIN
+    MAX
+
+    GROUP BY
+    HAVING
+
+    INNER JOIN
+    LEFT JOIN
+
+    CASE
+    Subquery
+    CTE
+
+    Window Functions
+
+    Primary Key
+    Foreign Key
+    Index
+
+    Transactions
+    ACID
+
+    SQL Injection Prevention
+
+
+========================================================
+106. SQL → DATA SCIENCE ROADMAP
+========================================================
+
+SQL
+ ↓
+Database Fundamentals
+ ↓
+SELECT / WHERE
+ ↓
+GROUP BY / Aggregation
+ ↓
+JOIN
+ ↓
+Subquery
+ ↓
+CTE
+ ↓
+Window Functions
+ ↓
+Query Optimization
+ ↓
+Python + Pandas
+ ↓
+Statistics
+ ↓
+Machine Learning
+ ↓
+Data Science
+ ↓
+Data Engineering / MLOps
+
+
+
+
+
+
