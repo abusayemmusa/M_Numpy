@@ -1,0 +1,2008 @@
+========================================================
+              LLM — MASTER CHEAT SHEET
+========================================================
+
+1. LLM BASICS
+--------------------------------------------------------
+
+LLM = Large Language Model
+
+Main Goal:
+    Understand and generate human language.
+
+Examples:
+    GPT
+    BERT
+    T5
+    LLaMA
+    Mistral
+    Qwen
+    Gemma
+    Claude-family models
+
+Main Tasks:
+    Text Generation
+    Question Answering
+    Summarization
+    Translation
+    Classification
+    Information Extraction
+    Code Generation
+    Conversation
+    Reasoning
+
+
+========================================================
+2. LLM FOUNDATIONS
+========================================================
+
+Prerequisites:
+
+    Python
+    Linear Algebra
+    Probability
+    Statistics
+    Machine Learning
+    Deep Learning
+    NLP
+
+
+Important:
+
+    NLP
+      ↓
+    Deep Learning
+      ↓
+    Attention
+      ↓
+    Transformer
+      ↓
+    LLM
+
+
+========================================================
+3. TEXT → TOKENS
+========================================================
+
+Raw Text
+   ↓
+Tokenizer
+   ↓
+Tokens
+   ↓
+Token IDs
+   ↓
+Embeddings
+   ↓
+Transformer
+
+
+Example:
+
+"I love AI"
+
+        ↓
+
+["I", "love", "AI"]
+
+        ↓
+
+[ID_1, ID_2, ID_3]
+
+
+========================================================
+4. TOKENIZATION
+========================================================
+
+Types:
+
+    Word Tokenization
+    Character Tokenization
+    Subword Tokenization
+
+
+Important algorithms:
+
+    BPE
+    WordPiece
+    Unigram
+    SentencePiece
+
+
+Important concepts:
+
+    Vocabulary
+    Token ID
+    Special Tokens
+    Context Length
+    Unknown Token
+    Padding
+    Truncation
+
+
+========================================================
+5. EMBEDDINGS
+========================================================
+
+Token
+  ↓
+Embedding Layer
+  ↓
+Vector
+
+
+Types:
+
+    Token Embedding
+    Positional Embedding
+    Sentence Embedding
+    Document Embedding
+
+
+Concepts:
+
+    Embedding Dimension
+    Semantic Similarity
+    Vector Space
+    Cosine Similarity
+
+
+========================================================
+6. POSITION INFORMATION
+========================================================
+
+Transformers need information about
+token positions.
+
+Methods:
+
+    Positional Encoding
+    Learned Positional Embedding
+    Relative Position
+    Rotary Position Embedding (RoPE)
+
+
+========================================================
+7. ATTENTION
+========================================================
+
+Attention is a core component of
+Transformer-based LLMs.
+
+
+Three components:
+
+    Query (Q)
+    Key (K)
+    Value (V)
+
+
+Formula:
+
+    Attention(Q,K,V)
+    =
+    softmax(QKᵀ / √dₖ)V
+
+
+Purpose:
+
+    Determine which tokens are important
+    to each other.
+
+
+========================================================
+8. SELF-ATTENTION
+========================================================
+
+Input Tokens
+      ↓
+     Q K V
+      ↓
+Attention Scores
+      ↓
+Weighted Values
+      ↓
+Output
+
+
+Important concepts:
+
+    Query
+    Key
+    Value
+    Attention Score
+    Softmax
+    Scaling
+    Context
+
+
+========================================================
+9. MULTI-HEAD ATTENTION
+========================================================
+
+Instead of one attention operation:
+
+    Head 1
+    Head 2
+    Head 3
+    ...
+    Head N
+
+Each head can learn different relationships.
+
+Then:
+
+    Concatenate
+       ↓
+    Linear Layer
+
+
+========================================================
+10. TRANSFORMER
+========================================================
+
+Main components:
+
+    Input Embedding
+    Positional Information
+    Self-Attention
+    Multi-Head Attention
+    Feed Forward Network
+    Layer Normalization
+    Residual Connection
+
+
+Basic:
+
+Input
+ ↓
+Embedding
+ ↓
+Attention
+ ↓
+FFN
+ ↓
+Normalization
+ ↓
+Output
+
+
+========================================================
+11. TRANSFORMER ARCHITECTURES
+========================================================
+
+1. Encoder-only
+
+    BERT
+
+
+2. Decoder-only
+
+    GPT
+    LLaMA
+    Mistral
+    Qwen
+    Gemma
+
+
+3. Encoder-Decoder
+
+    T5
+    BART
+
+
+LLMs used for generation are commonly
+decoder-only Transformer models.
+
+
+========================================================
+12. FEED-FORWARD NETWORK
+========================================================
+
+Inside Transformer block:
+
+    Linear
+      ↓
+    Activation
+      ↓
+    Linear
+
+
+Common activation:
+
+    ReLU
+    GELU
+    SwiGLU
+
+
+========================================================
+13. NORMALIZATION
+========================================================
+
+Common:
+
+    LayerNorm
+    RMSNorm
+
+
+Purpose:
+
+    Improve training stability.
+
+
+========================================================
+14. RESIDUAL CONNECTION
+========================================================
+
+Input
+  │
+  ├──────────────┐
+  ↓              │
+Transformer      │
+  ↓              │
+  └──── + <──────┘
+         ↓
+      Output
+
+
+Purpose:
+
+    Better gradient flow
+    Easier optimization
+
+
+========================================================
+15. CAUSAL LANGUAGE MODELING
+========================================================
+
+LLM predicts:
+
+    Next Token
+
+
+Example:
+
+"The sky is"
+
+Possible:
+
+    "blue"
+
+
+Process:
+
+    Token 1
+       ↓
+    Token 2
+       ↓
+    Token 3
+       ↓
+    Predict next token
+
+
+This is called:
+
+    Autoregressive Generation
+
+
+========================================================
+16. NEXT-TOKEN PREDICTION
+========================================================
+
+Input:
+
+    "Machine learning is"
+
+Model predicts probability:
+
+    useful → 0.30
+    powerful → 0.25
+    ...
+    
+Choose/sample next token.
+
+
+Then:
+
+    "Machine learning is powerful"
+
+Predict next token again.
+
+
+========================================================
+17. CONTEXT WINDOW
+========================================================
+
+Context Window =
+maximum amount of tokens a model can
+process in one context.
+
+Important concepts:
+
+    Input Tokens
+    Output Tokens
+    Total Context
+    Context Length
+
+
+Longer context:
+
+    More information can be processed.
+
+
+========================================================
+18. LOGITS
+========================================================
+
+Transformer
+    ↓
+Hidden States
+    ↓
+Linear Layer
+    ↓
+Logits
+    ↓
+Softmax
+    ↓
+Token Probabilities
+
+
+Logits = unnormalized scores.
+
+
+========================================================
+19. SOFTMAX
+========================================================
+
+Converts logits into probabilities.
+
+    logits
+      ↓
+    softmax
+      ↓
+ probabilities
+
+
+Probability sum:
+
+    1
+
+
+========================================================
+20. TEMPERATURE
+========================================================
+
+Temperature controls randomness.
+
+Low temperature:
+
+    More deterministic
+    More predictable
+
+
+High temperature:
+
+    More diverse
+    More random
+
+
+Concept:
+
+    Temperature ↑
+        →
+    randomness ↑
+
+
+========================================================
+21. TOP-K SAMPLING
+========================================================
+
+Select only the top K probable tokens.
+
+Example:
+
+    Top 5 tokens
+        ↓
+    Sample one
+
+
+========================================================
+22. TOP-P SAMPLING
+========================================================
+
+Also called:
+
+    Nucleus Sampling
+
+Select tokens until cumulative probability
+reaches P.
+
+
+Example:
+
+    top_p = 0.9
+
+
+========================================================
+23. GREEDY DECODING
+========================================================
+
+Always select:
+
+    Highest probability token
+
+
+Simple but can produce repetitive output.
+
+
+========================================================
+24. BEAM SEARCH
+========================================================
+
+Maintain multiple candidate sequences.
+
+Used in some:
+
+    Translation
+    Text generation
+    Seq2Seq tasks
+
+
+========================================================
+25. LLM TRAINING STAGES
+========================================================
+
+Stage 1:
+
+    Pretraining
+
+
+Stage 2:
+
+    Instruction Tuning
+
+
+Stage 3:
+
+    Alignment
+
+
+Stage 4:
+
+    Evaluation
+
+
+Stage 5:
+
+    Deployment
+
+
+========================================================
+26. PRETRAINING
+========================================================
+
+Huge text dataset
+       ↓
+Tokenization
+       ↓
+Transformer
+       ↓
+Next-token prediction
+       ↓
+Loss
+       ↓
+Backpropagation
+       ↓
+Parameter Update
+
+
+Goal:
+
+    Learn general language patterns.
+
+
+========================================================
+27. TRAINING DATA
+========================================================
+
+Possible sources:
+
+    Books
+    Articles
+    Websites
+    Code
+    Documents
+    Conversations
+    Scientific Text
+
+
+Important:
+
+    Data Quality
+    Deduplication
+    Filtering
+    Data Cleaning
+    Safety Filtering
+
+
+========================================================
+28. LOSS FUNCTION
+========================================================
+
+Common:
+
+    Cross Entropy Loss
+
+
+Goal:
+
+    Minimize prediction error.
+
+
+Pipeline:
+
+    Prediction
+       ↓
+    Loss
+       ↓
+    Backpropagation
+       ↓
+    Optimizer
+       ↓
+    Updated Parameters
+
+
+========================================================
+29. OPTIMIZATION
+========================================================
+
+Common:
+
+    Adam
+    AdamW
+
+
+Important:
+
+    Learning Rate
+    Weight Decay
+    Batch Size
+    Gradient
+    Gradient Clipping
+    Warmup
+    Learning Rate Schedule
+
+
+========================================================
+30. BATCHING
+========================================================
+
+Instead of processing one example:
+
+    Batch of examples
+
+
+Important:
+
+    Batch Size
+    Micro Batch
+    Gradient Accumulation
+
+
+========================================================
+31. MIXED PRECISION
+========================================================
+
+Common:
+
+    FP32
+    FP16
+    BF16
+
+
+Benefits:
+
+    Lower memory
+    Faster training
+    Better hardware utilization
+
+
+========================================================
+32. GPU TRAINING
+========================================================
+
+CPU
+ ↓
+GPU
+ ↓
+CUDA
+ ↓
+Deep Learning Framework
+ ↓
+LLM
+
+
+Important:
+
+    GPU Memory
+    VRAM
+    CUDA
+    Tensor Cores
+
+
+========================================================
+33. DISTRIBUTED TRAINING
+========================================================
+
+Large LLMs may require:
+
+    Multiple GPUs
+    Multiple Machines
+
+
+Techniques:
+
+    Data Parallelism
+    Tensor Parallelism
+    Pipeline Parallelism
+    Model Parallelism
+
+
+========================================================
+34. PARAMETER
+========================================================
+
+LLM contains many trainable parameters.
+
+Examples:
+
+    Million
+    Billion
+    Trillion-scale
+
+
+Parameter count ≠ intelligence by itself.
+
+
+========================================================
+35. MODEL SIZE
+========================================================
+
+Small Model
+    ↓
+Medium Model
+    ↓
+Large Model
+
+
+Trade-offs:
+
+    Accuracy
+    Memory
+    Speed
+    Cost
+    Deployment
+
+
+========================================================
+36. INSTRUCTION TUNING
+========================================================
+
+Base Model
+    ↓
+Instruction Dataset
+    ↓
+Fine-Tuning
+    ↓
+Instruction-Following Model
+
+
+Example:
+
+    User:
+    "Explain gravity."
+
+
+Model:
+
+    Provides structured answer.
+
+
+========================================================
+37. SUPERVISED FINE-TUNING
+========================================================
+
+SFT = Supervised Fine-Tuning
+
+Dataset:
+
+    Instruction
+    Input
+    Expected Output
+
+
+Process:
+
+    Base LLM
+       ↓
+    SFT Dataset
+       ↓
+    Training
+       ↓
+    Fine-Tuned LLM
+
+
+========================================================
+38. PEFT
+========================================================
+
+PEFT =
+Parameter-Efficient Fine-Tuning
+
+
+Goal:
+
+    Train fewer parameters.
+
+
+Methods:
+
+    LoRA
+    QLoRA
+    Adapters
+    Prefix Tuning
+    Prompt Tuning
+
+
+========================================================
+39. LoRA
+========================================================
+
+LoRA =
+Low-Rank Adaptation
+
+
+Instead of updating all model parameters:
+
+    Freeze Base Model
+          ↓
+    Add Small Trainable Matrices
+          ↓
+    Train Adapters
+
+
+Advantages:
+
+    Lower memory
+    Faster training
+    Smaller checkpoints
+
+
+========================================================
+40. QLoRA
+========================================================
+
+QLoRA combines:
+
+    Quantization
+       +
+    LoRA
+
+
+Purpose:
+
+    Fine-tune large models with
+    lower GPU memory requirements.
+
+
+========================================================
+41. QUANTIZATION
+========================================================
+
+Reduce numerical precision.
+
+Examples:
+
+    FP16
+    BF16
+    INT8
+    INT4
+
+
+Benefits:
+
+    Smaller model
+    Lower memory
+    Faster inference
+
+
+Trade-off:
+
+    Possible quality loss
+
+
+========================================================
+42. PROMPT ENGINEERING
+========================================================
+
+Prompt =
+Instruction given to LLM.
+
+
+Techniques:
+
+    Zero-Shot
+    One-Shot
+    Few-Shot
+    Role Prompting
+    Structured Prompting
+    Chain-of-Thought
+    Self-Consistency
+    ReAct
+    Output Constraints
+
+
+========================================================
+43. ZERO-SHOT
+========================================================
+
+No examples.
+
+Prompt:
+
+    "Classify this sentence as positive
+     or negative."
+
+
+========================================================
+44. FEW-SHOT
+========================================================
+
+Provide examples.
+
+Example:
+
+    Text → Positive
+    Text → Negative
+
+Then:
+
+    New Text → ?
+
+
+========================================================
+45. STRUCTURED OUTPUT
+========================================================
+
+Ask model to produce:
+
+    JSON
+    Table
+    List
+    Schema
+    Specific format
+
+
+Useful for:
+
+    APIs
+    Automation
+    Data extraction
+
+
+========================================================
+46. FUNCTION / TOOL CALLING
+========================================================
+
+LLM
+ ↓
+Determine tool
+ ↓
+Call tool
+ ↓
+Receive result
+ ↓
+Generate response
+
+
+Tools:
+
+    Search
+    Calculator
+    Database
+    API
+    Code Execution
+
+
+========================================================
+47. RAG
+========================================================
+
+RAG =
+Retrieval-Augmented Generation
+
+
+User Question
+      ↓
+Embedding
+      ↓
+Retriever
+      ↓
+Documents
+      ↓
+LLM
+      ↓
+Answer
+
+
+Main components:
+
+    Chunking
+    Embedding
+    Vector Database
+    Retrieval
+    Reranking
+    Prompt
+    LLM
+
+
+========================================================
+48. DOCUMENT CHUNKING
+========================================================
+
+Large document
+      ↓
+Small chunks
+
+
+Methods:
+
+    Fixed-size Chunking
+    Sentence Chunking
+    Paragraph Chunking
+    Recursive Chunking
+    Semantic Chunking
+
+
+Important:
+
+    Chunk Size
+    Chunk Overlap
+
+
+========================================================
+49. VECTOR DATABASE
+========================================================
+
+Examples:
+
+    FAISS
+    Chroma
+    Milvus
+    Weaviate
+    Pinecone
+    Qdrant
+
+
+Stores:
+
+    Embeddings
+    Metadata
+
+
+Used for:
+
+    Semantic Search
+    RAG
+    Recommendation
+
+
+========================================================
+50. RETRIEVAL
+========================================================
+
+Methods:
+
+    Dense Retrieval
+    Sparse Retrieval
+    Hybrid Retrieval
+
+
+Sparse:
+
+    BM25
+
+
+Dense:
+
+    Embedding Similarity
+
+
+Hybrid:
+
+    Sparse + Dense
+
+
+========================================================
+51. RERANKING
+========================================================
+
+Retriever
+   ↓
+Candidate Documents
+   ↓
+Reranker
+   ↓
+Best Documents
+   ↓
+LLM
+
+
+Purpose:
+
+    Improve retrieval relevance.
+
+
+========================================================
+52. HALLUCINATION
+========================================================
+
+LLM may generate:
+
+    Incorrect facts
+    Invented information
+    False citations
+
+
+Reduction methods:
+
+    RAG
+    Better prompts
+    Tool use
+    Verification
+    Grounding
+    Fine-tuning
+    Human evaluation
+
+
+========================================================
+53. LLM EVALUATION
+========================================================
+
+Evaluate:
+
+    Accuracy
+    Helpfulness
+    Relevance
+    Factuality
+    Safety
+    Robustness
+    Bias
+    Toxicity
+    Latency
+    Cost
+
+
+Automatic:
+
+    BLEU
+    ROUGE
+    Perplexity
+    BERTScore
+
+
+LLM-based evaluation:
+
+    LLM-as-a-Judge
+
+
+Human:
+
+    Human Evaluation
+
+
+========================================================
+54. PERPLEXITY
+========================================================
+
+Measures language-model uncertainty.
+
+Lower perplexity generally indicates
+better next-token prediction on the
+same evaluation setup.
+
+
+========================================================
+55. SAFETY
+========================================================
+
+Important areas:
+
+    Toxicity
+    Bias
+    Privacy
+    Security
+    Prompt Injection
+    Jailbreaks
+    Data Leakage
+    Harmful Content
+
+
+========================================================
+56. PROMPT INJECTION
+========================================================
+
+User input attempts to manipulate
+instructions or tool behavior.
+
+
+Protection:
+
+    Input validation
+    Instruction hierarchy
+    Tool permissions
+    Sandboxing
+    Output validation
+
+
+========================================================
+57. LLM SECURITY
+========================================================
+
+Topics:
+
+    Prompt Injection
+    Data Poisoning
+    Model Extraction
+    Data Leakage
+    Jailbreaking
+    Adversarial Inputs
+    Supply Chain Security
+    Tool Abuse
+
+
+========================================================
+58. LLM MEMORY
+========================================================
+
+Types:
+
+    Short-Term Context
+    Conversation Memory
+    External Memory
+    Vector Memory
+
+
+External memory can use:
+
+    Vector Database
+    SQL Database
+    Document Store
+
+
+========================================================
+59. LLM AGENTS
+========================================================
+
+LLM
+ ↓
+Reasoning
+ ↓
+Planning
+ ↓
+Tool Selection
+ ↓
+Tool Execution
+ ↓
+Observation
+ ↓
+Next Action
+ ↓
+Final Answer
+
+
+Components:
+
+    LLM
+    Tools
+    Memory
+    Planner
+    Executor
+    Environment
+
+
+========================================================
+60. AGENT FRAMEWORKS
+========================================================
+
+Examples:
+
+    LangChain
+    LangGraph
+    LlamaIndex
+    AutoGen
+    CrewAI
+
+
+Use cases:
+
+    Research Agent
+    Coding Agent
+    Data Agent
+    Customer Support Agent
+    Automation Agent
+
+
+========================================================
+61. LLM APIs
+========================================================
+
+Typical API concepts:
+
+    API Key
+    Model
+    Messages
+    System Instruction
+    User Input
+    Output
+    Tokens
+    Temperature
+    Max Tokens
+    Streaming
+    Tool Calling
+
+
+========================================================
+62. LOCAL LLM
+========================================================
+
+Run models locally using tools such as:
+
+    Ollama
+    llama.cpp
+    vLLM
+    Hugging Face Transformers
+
+
+Benefits:
+
+    Privacy
+    Offline use
+    Control
+
+
+Challenges:
+
+    Hardware
+    Memory
+    Speed
+    Model size
+
+
+========================================================
+63. INFERENCE
+========================================================
+
+Training:
+
+    Dataset
+      ↓
+    Model
+      ↓
+    Parameters
+
+
+Inference:
+
+    Prompt
+      ↓
+    Trained Model
+      ↓
+    Output
+
+
+Important:
+
+    Latency
+    Throughput
+    Memory
+    Batch Size
+    Quantization
+
+
+========================================================
+64. KV CACHE
+========================================================
+
+KV Cache stores previous:
+
+    Keys
+    Values
+
+
+Purpose:
+
+    Reduce repeated computation
+    during autoregressive generation.
+
+
+========================================================
+65. SPECULATIVE DECODING
+========================================================
+
+Small/fast model
+      ↓
+Generate candidates
+      ↓
+Large model
+      ↓
+Verify
+
+
+Goal:
+
+    Faster generation.
+
+
+========================================================
+66. LONG-CONTEXT LLM
+========================================================
+
+Challenges:
+
+    Memory
+    Attention Cost
+    Retrieval Quality
+    Position Encoding
+
+
+Methods:
+
+    Efficient Attention
+    RoPE Scaling
+    Retrieval
+    Chunking
+    Memory
+
+
+========================================================
+67. MULTIMODAL LLM
+========================================================
+
+Inputs:
+
+    Text
+    Image
+    Audio
+    Video
+
+
+Outputs:
+
+    Text
+    Image
+    Audio
+    Actions
+
+
+Examples of tasks:
+
+    Image Question Answering
+    Image Captioning
+    Document Understanding
+    Voice Assistant
+
+
+========================================================
+68. CODE LLM
+========================================================
+
+Tasks:
+
+    Code Generation
+    Code Completion
+    Debugging
+    Code Explanation
+    Refactoring
+    Code Translation
+    Test Generation
+
+
+========================================================
+69. DOMAIN-SPECIFIC LLM
+========================================================
+
+Examples:
+
+    Medical LLM
+    Legal LLM
+    Finance LLM
+    Scientific LLM
+    Education LLM
+    Coding LLM
+
+
+Methods:
+
+    Domain Pretraining
+    Fine-Tuning
+    RAG
+
+
+========================================================
+70. LLM PIPELINE
+========================================================
+
+Data
+ ↓
+Cleaning
+ ↓
+Tokenization
+ ↓
+Pretraining
+ ↓
+Instruction Tuning
+ ↓
+Alignment
+ ↓
+Evaluation
+ ↓
+Optimization
+ ↓
+Deployment
+ ↓
+Monitoring
+
+
+========================================================
+71. LLM DEPLOYMENT
+========================================================
+
+Model
+ ↓
+Inference Server
+ ↓
+API
+ ↓
+Application
+ ↓
+User
+
+
+Technologies:
+
+    FastAPI
+    Docker
+    vLLM
+    Cloud GPU
+    Kubernetes
+
+
+========================================================
+72. LLM MONITORING
+========================================================
+
+Monitor:
+
+    Latency
+    Throughput
+    Token Usage
+    Cost
+    Errors
+    Quality
+    Hallucination
+    Safety
+
+
+========================================================
+73. LLM PROJECTS — BEGINNER
+========================================================
+
+1. Text Generator
+2. Simple Chatbot
+3. Prompt-Based Assistant
+4. Text Summarizer
+5. Question Answering Bot
+6. Sentiment Analyzer
+7. Translation Assistant
+8. Code Explanation Bot
+9. Email Generator
+10. FAQ Bot
+
+
+========================================================
+74. LLM PROJECTS — INTERMEDIATE
+========================================================
+
+1. PDF Question Answering
+2. Document Chatbot
+3. Semantic Search
+4. RAG Chatbot
+5. Resume Analyzer
+6. Research Assistant
+7. Code Assistant
+8. Customer Support Bot
+9. Multilingual Chatbot
+10. Personal Knowledge Base
+
+
+========================================================
+75. LLM PROJECTS — ADVANCED
+========================================================
+
+1. Fine-Tuned LLM
+2. LoRA Fine-Tuning
+3. QLoRA Fine-Tuning
+4. Multilingual LLM
+5. Domain-Specific LLM
+6. Long-Context RAG
+7. Agentic RAG
+8. Multi-Agent System
+9. Coding Agent
+10. Research Agent
+11. Multimodal LLM
+12. Local LLM Server
+13. LLM Evaluation System
+14. LLM Security System
+15. Production LLM Platform
+
+
+========================================================
+76. LLM ACTIVITIES
+========================================================
+
+Activity 1:
+    Build tokenizer.
+
+Activity 2:
+    Implement embeddings.
+
+Activity 3:
+    Calculate cosine similarity.
+
+Activity 4:
+    Implement attention from scratch.
+
+Activity 5:
+    Implement self-attention.
+
+Activity 6:
+    Implement Transformer block.
+
+Activity 7:
+    Train a small language model.
+
+Activity 8:
+    Build text generator.
+
+Activity 9:
+    Experiment with temperature.
+
+Activity 10:
+    Experiment with top-k.
+
+Activity 11:
+    Experiment with top-p.
+
+Activity 12:
+    Use Hugging Face Transformers.
+
+Activity 13:
+    Fine-tune a small model.
+
+Activity 14:
+    Implement LoRA.
+
+Activity 15:
+    Build RAG.
+
+Activity 16:
+    Add vector database.
+
+Activity 17:
+    Add reranking.
+
+Activity 18:
+    Add tool calling.
+
+Activity 19:
+    Build an AI Agent.
+
+Activity 20:
+    Deploy an LLM API.
+
+
+========================================================
+77. IMPORTANT PYTHON LIBRARIES
+========================================================
+
+Core:
+
+    Python
+    NumPy
+    Pandas
+
+
+ML:
+
+    Scikit-learn
+
+
+Deep Learning:
+
+    PyTorch
+    TensorFlow
+
+
+NLP:
+
+    NLTK
+    spaCy
+
+
+LLM:
+
+    Transformers
+    Tokenizers
+    Datasets
+    PEFT
+    Accelerate
+
+
+RAG:
+
+    LangChain
+    LlamaIndex
+
+
+Vector Search:
+
+    FAISS
+    Chroma
+    Qdrant
+    Milvus
+    Weaviate
+
+
+Serving:
+
+    vLLM
+    FastAPI
+    Docker
+
+
+========================================================
+78. HUGGING FACE IMPORTANT CONCEPTS
+========================================================
+
+Model Hub
+Tokenizer
+Model
+Dataset
+Pipeline
+Trainer
+TrainingArguments
+AutoTokenizer
+AutoModel
+AutoModelForCausalLM
+AutoModelForSequenceClassification
+PEFT
+
+
+========================================================
+79. TRANSFORMERS WORKFLOW
+========================================================
+
+Tokenizer
+    ↓
+Input IDs
+    ↓
+Attention Mask
+    ↓
+Transformer Model
+    ↓
+Hidden States / Logits
+    ↓
+Prediction
+
+
+========================================================
+80. LLM LEARNING ROADMAP
+========================================================
+
+LEVEL 1
+    Python
+    NumPy
+    Pandas
+
+
+LEVEL 2
+    Probability
+    Statistics
+    Linear Algebra
+
+
+LEVEL 3
+    Machine Learning
+    Deep Learning
+
+
+LEVEL 4
+    NLP
+
+    Tokenization
+    TF-IDF
+    Embeddings
+    Text Classification
+    NER
+    Semantic Similarity
+
+
+LEVEL 5
+    Neural NLP
+
+    RNN
+    LSTM
+    GRU
+
+
+LEVEL 6
+    Attention
+
+    Query
+    Key
+    Value
+    Self-Attention
+    Multi-Head Attention
+
+
+LEVEL 7
+    Transformers
+
+    Encoder
+    Decoder
+    Positional Encoding
+    FFN
+    LayerNorm
+    Residual Connection
+
+
+LEVEL 8
+    LLM
+
+    GPT
+    BERT
+    T5
+    LLaMA
+    Mistral
+    Qwen
+    Gemma
+
+
+LEVEL 9
+    Hugging Face
+
+    Transformers
+    Tokenizers
+    Datasets
+    PEFT
+
+
+LEVEL 10
+    Prompt Engineering
+
+    Zero-shot
+    Few-shot
+    Structured Output
+    Tool Calling
+
+
+LEVEL 11
+    RAG
+
+    Chunking
+    Embeddings
+    Vector DB
+    Retrieval
+    Reranking
+    Generation
+
+
+LEVEL 12
+    Fine-Tuning
+
+    SFT
+    LoRA
+    QLoRA
+    PEFT
+
+
+LEVEL 13
+    Advanced LLM
+
+    Quantization
+    Distributed Training
+    Efficient Inference
+    KV Cache
+    Long Context
+    Multimodal LLM
+
+
+LEVEL 14
+    AI AGENTS
+
+    Tools
+    Memory
+    Planning
+    Reasoning
+    Multi-Agent Systems
+
+
+LEVEL 15
+    PRODUCTION
+
+    FastAPI
+    Docker
+    vLLM
+    Cloud
+    Monitoring
+    Evaluation
+    Security
+    MLOps
+
+
+========================================================
+81. LLM — 80/20
+========================================================
+
+MUST LEARN:
+
+    Tokenization
+    Embeddings
+    Attention
+    Self-Attention
+    Transformer
+    Next-Token Prediction
+    Causal Language Modeling
+    Context Window
+    Prompt Engineering
+    Hugging Face
+    GPT/BERT/T5 concepts
+    LLM Inference
+    Fine-Tuning
+    LoRA
+    RAG
+    Vector Database
+    Tool Calling
+    AI Agents
+
+
+========================================================
+82. LLM → NEXT LEVEL
+========================================================
+
+NLP
+ ↓
+LLM
+ ↓
+Prompt Engineering
+ ↓
+Hugging Face
+ ↓
+RAG
+ ↓
+Fine-Tuning
+ ↓
+LoRA / QLoRA
+ ↓
+LLM Evaluation
+ ↓
+LLM Deployment
+ ↓
+AI Agents
+ ↓
+Agentic AI
+ ↓
+Multimodal AI
+ ↓
+Advanced AI Systems
